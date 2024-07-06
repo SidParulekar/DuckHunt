@@ -1,11 +1,13 @@
 #pragma once
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Graphics\GraphicService.h"
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Events\EventService.h"
+#include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Gameplay\GameplayService.h"
 
 namespace Global
 {
     using namespace Graphic;
     using namespace Event;
+    using namespace Gameplay;
 
     class ServiceLocator
     {
@@ -13,6 +15,7 @@ namespace Global
         // Declaring pointers to instances of different services:
         GraphicService* graphic_service;
         EventService* event_service;
+        GameplayService* gameplay_service;
 
         // Constructor for initializing the ServiceLocator.
         ServiceLocator();
@@ -37,6 +40,7 @@ namespace Global
         // Methods to Get Specific Services: 
         GraphicService* getGraphicService();   // Retrieve the GraphicService instance
         EventService* getEventService(); // Retrieve the EventService instance
+        GameplayService* getGameplayService(); // Retrieve the GameplayService instance
 
     };
 }
