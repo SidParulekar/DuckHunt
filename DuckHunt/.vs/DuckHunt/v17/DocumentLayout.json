@@ -3,8 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Game\\GameService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Header\\Game\\GameService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Game\\GameService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Source\\Game\\GameService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Graphics\\GraphicService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Source\\Graphics\\GraphicService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\ServiceLocator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Source\\ServiceLocator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Events\\EventService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Header\\Events\\EventService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Graphics\\GraphicService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Header\\Graphics\\GraphicService.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Events\\EventService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Source\\Events\\EventService.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\ServiceLocator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BF08DB50-D314-425A-AC9D-5BF1B0135B88}|DuckHunt.vcxproj|solutionrelative:Header\\ServiceLocator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +46,123 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameService.cpp",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Game\\GameService.cpp",
+              "RelativeDocumentMoniker": "Source\\Game\\GameService.cpp",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Game\\GameService.cpp",
+              "RelativeToolTip": "Source\\Game\\GameService.cpp",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-06T09:20:34.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GameService.h",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Game\\GameService.h",
+              "RelativeDocumentMoniker": "Header\\Game\\GameService.h",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Game\\GameService.h",
+              "RelativeToolTip": "Header\\Game\\GameService.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-06T09:20:21.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EventService.cpp",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Events\\EventService.cpp",
+              "RelativeDocumentMoniker": "Source\\Events\\EventService.cpp",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Events\\EventService.cpp",
+              "RelativeToolTip": "Source\\Events\\EventService.cpp",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAACgAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-06T08:33:13.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EventService.h",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Events\\EventService.h",
+              "RelativeDocumentMoniker": "Header\\Events\\EventService.h",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Events\\EventService.h",
+              "RelativeToolTip": "Header\\Events\\EventService.h",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-06T08:32:48.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceLocator.cpp",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\ServiceLocator.cpp",
+              "RelativeDocumentMoniker": "Source\\ServiceLocator.cpp",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\ServiceLocator.cpp",
+              "RelativeToolTip": "Source\\ServiceLocator.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-06T07:55:32.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GraphicService.cpp",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Graphics\\GraphicService.cpp",
+              "RelativeDocumentMoniker": "Source\\Graphics\\GraphicService.cpp",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Source\\Graphics\\GraphicService.cpp",
+              "RelativeToolTip": "Source\\Graphics\\GraphicService.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-06T07:45:39.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GraphicService.h",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Graphics\\GraphicService.h",
+              "RelativeDocumentMoniker": "Header\\Graphics\\GraphicService.h",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\Graphics\\GraphicService.h",
+              "RelativeToolTip": "Header\\Graphics\\GraphicService.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-06T07:23:57.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-07-06T06:33:33.309Z",
+              "WhenOpened": "2024-07-06T07:12:13.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ServiceLocator.h",
+              "DocumentMoniker": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\ServiceLocator.h",
+              "RelativeDocumentMoniker": "Header\\ServiceLocator.h",
+              "ToolTip": "C:\\Users\\sidpa\\Documents\\GitHub\\DuckHunt\\DuckHunt\\Header\\ServiceLocator.h",
+              "RelativeToolTip": "Header\\ServiceLocator.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-06T07:55:06.916Z",
               "EditorCaption": ""
             }
           ]

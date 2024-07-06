@@ -1,2 +1,7 @@
 ﻿  main.cpp
+  EventService.cpp
+  GameService.cpp
+  GraphicService.cpp
+  ServiceLocator.cpp
+  Generating Code...
   DuckHunt.vcxproj -> C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\x64\Debug\DuckHunt.exe
