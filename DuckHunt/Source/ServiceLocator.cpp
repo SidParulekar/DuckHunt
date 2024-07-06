@@ -9,6 +9,7 @@ namespace Global
 	{
 		graphic_service = nullptr;
 		event_service = nullptr;
+		gameplay_service = nullptr;
 		createServices();
 
 	}
@@ -18,6 +19,7 @@ namespace Global
 	{
 		graphic_service = new GraphicService();
 		event_service = new EventService();
+		gameplay_service = new GameplayService();
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -31,6 +33,7 @@ namespace Global
 	{
 		graphic_service->initialize();
 		event_service->initialize();
+		gameplay_service->initialize();
 	}
 
 	// Updates services
@@ -38,6 +41,7 @@ namespace Global
 	{
 		graphic_service->update();
 		event_service->update();
+		gameplay_service->update();
 		
 	}
 
@@ -45,7 +49,7 @@ namespace Global
 	void ServiceLocator::render()
 	{
 		graphic_service->render();
-		
+		gameplay_service->render();
 	}
 
 	GraphicService* ServiceLocator::getGraphicService()
@@ -56,6 +60,11 @@ namespace Global
 	EventService* ServiceLocator::getEventService()
 	{
 		return event_service;
+	}
+
+	GameplayService* ServiceLocator::getGameplayService()
+	{
+		return gameplay_service;
 	}
 
 
@@ -70,9 +79,11 @@ namespace Global
 	{
 		delete graphic_service;
 		delete event_service;
+		delete gameplay_service;
 		
 		graphic_service = nullptr;
 		event_service = nullptr;
+		gameplay_service = nullptr;
 		
 	}
 

@@ -1,7 +1,23 @@
 ﻿  main.cpp
+  Config.cpp
   EventService.cpp
+  GameplayController.cpp
+  GameplayService.cpp
+  GameplayView.cpp
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,113): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,113): warning C4244:         with
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,113): warning C4244:         [
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,113): warning C4244:             T=unsigned int
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,113): warning C4244:         ]
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,87): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,87): warning C4244:         with
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,87): warning C4244:         [
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,87): warning C4244:             T=unsigned int
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\Gameplay\GameplayView.cpp(29,87): warning C4244:         ]
   GameService.cpp
-  GraphicService.cpp
   ServiceLocator.cpp
+  ImageView.cpp
+C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\Source\UI\ImageView.cpp(68,19): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+  UIService.cpp
   Generating Code...
   DuckHunt.vcxproj -> C:\Users\sidpa\Documents\GitHub\DuckHunt\DuckHunt\x64\Debug\DuckHunt.exe
