@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source\Config.cpp" />
+    <ClCompile Include="Source\Ducks\DuckController.cpp" />
+    <ClCompile Include="Source\Ducks\DuckModel.cpp" />
+    <ClCompile Include="Source\Ducks\DuckService.cpp" />
+    <ClCompile Include="Source\Ducks\DuckView.cpp" />
     <ClCompile Include="Source\Events\EventService.cpp" />
     <ClCompile Include="Source\Gameplay\GameplayController.cpp" />
     <ClCompile Include="Source\Gameplay\GameplayService.cpp" />
@@ -28,11 +32,17 @@
     <ClCompile Include="Source\Game\GameService.cpp" />
     <ClCompile Include="Source\Graphics\GraphicService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
+    <ClCompile Include="Source\Time\TimeService.cpp" />
     <ClCompile Include="Source\UI\ImageView.cpp" />
     <ClCompile Include="Source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Config.h" />
+    <ClInclude Include="Header\Ducks\DuckConfig.h" />
+    <ClInclude Include="Header\Ducks\DuckController.h" />
+    <ClInclude Include="Header\Ducks\DuckModel.h" />
+    <ClInclude Include="Header\Ducks\DuckService.h" />
+    <ClInclude Include="Header\Ducks\DuckView.h" />
     <ClInclude Include="Header\Events\EventService.h" />
     <ClInclude Include="Header\Gameplay\GameplayController.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />
@@ -40,6 +50,7 @@
     <ClInclude Include="Header\Game\GameService.h" />
     <ClInclude Include="Header\Graphics\GraphicService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
+    <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\UI\ImageView.h" />
     <ClInclude Include="Header\UI\UIService.h" />
   </ItemGroup>

@@ -12,6 +12,11 @@
     <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\UI\ImageView.cpp" />
     <ClCompile Include="Source\UI\UIService.cpp" />
+    <ClCompile Include="Source\Ducks\DuckService.cpp" />
+    <ClCompile Include="Source\Ducks\DuckController.cpp" />
+    <ClCompile Include="Source\Ducks\DuckModel.cpp" />
+    <ClCompile Include="Source\Ducks\DuckView.cpp" />
+    <ClCompile Include="Source\Time\TimeService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Graphics\GraphicService.h" />
@@ -24,5 +29,11 @@
     <ClInclude Include="Header\UI\ImageView.h" />
     <ClInclude Include="Header\Config.h" />
     <ClInclude Include="Header\UI\UIService.h" />
+    <ClInclude Include="Header\Ducks\DuckService.h" />
+    <ClInclude Include="Header\Ducks\DuckController.h" />
+    <ClInclude Include="Header\Ducks\DuckModel.h" />
+    <ClInclude Include="Header\Ducks\DuckView.h" />
+    <ClInclude Include="Header\Ducks\DuckConfig.h" />
+    <ClInclude Include="Header\Time\TimeService.h" />
   </ItemGroup>
 </Project>

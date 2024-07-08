@@ -4,12 +4,16 @@ namespace Global
 {
 	using namespace Graphic;
 	using namespace Event;
+	using namespace Duck;
+	using namespace Time;
 
 	ServiceLocator::ServiceLocator()
 	{
 		graphic_service = nullptr;
 		event_service = nullptr;
 		gameplay_service = nullptr;
+		duck_service = nullptr;
+		time_service = nullptr;
 		createServices();
 
 	}
@@ -20,6 +24,8 @@ namespace Global
 		graphic_service = new GraphicService();
 		event_service = new EventService();
 		gameplay_service = new GameplayService();
+		duck_service = new DuckService();
+		time_service = new TimeService();
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -34,6 +40,9 @@ namespace Global
 		graphic_service->initialize();
 		event_service->initialize();
 		gameplay_service->initialize();
+		time_service->initialize(); 
+		duck_service->initialize();
+		
 	}
 
 	// Updates services
@@ -42,6 +51,8 @@ namespace Global
 		graphic_service->update();
 		event_service->update();
 		gameplay_service->update();
+		time_service->update();
+		duck_service->update();
 		
 	}
 
@@ -50,6 +61,7 @@ namespace Global
 	{
 		graphic_service->render();
 		gameplay_service->render();
+		duck_service->render();
 	}
 
 	GraphicService* ServiceLocator::getGraphicService()
@@ -67,6 +79,16 @@ namespace Global
 		return gameplay_service;
 	}
 
+	DuckService* ServiceLocator::getDuckService()
+	{
+		return duck_service;
+	}
+
+	TimeService* ServiceLocator::getTimeService()
+	{
+		return time_service;
+	}
+
 
 	//Destructor to clean up resources on object deletion
 	ServiceLocator::~ServiceLocator()
@@ -80,10 +102,14 @@ namespace Global
 		delete graphic_service;
 		delete event_service;
 		delete gameplay_service;
+		delete duck_service;
+		delete time_service;
 		
 		graphic_service = nullptr;
 		event_service = nullptr;
 		gameplay_service = nullptr;
+		duck_service = nullptr;
+		time_service = nullptr;
 		
 	}
 
