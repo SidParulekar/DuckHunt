@@ -185,6 +185,7 @@ namespace Duck
 
 		if (shotDuck(&duck_sprite, mouse_position))
 		{
+			ServiceLocator::getInstance()->getPlayerService()->increaseScore(100);
 			destroy();
 		}
 	}

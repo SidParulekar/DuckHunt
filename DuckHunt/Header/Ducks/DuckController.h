@@ -44,5 +44,6 @@ namespace Duck
 		//DuckType getDuckType();
 		DuckState getDuckState();
 
+
 	};
 }

@@ -17,6 +17,9 @@
     <ClCompile Include="Source\Ducks\DuckModel.cpp" />
     <ClCompile Include="Source\Ducks\DuckView.cpp" />
     <ClCompile Include="Source\Time\TimeService.cpp" />
+    <ClCompile Include="Source\Player\PlayerService.cpp" />
+    <ClCompile Include="Source\Player\PlayerController.cpp" />
+    <ClCompile Include="Source\Player\PlayerModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Graphics\GraphicService.h" />
@@ -35,5 +38,8 @@
     <ClInclude Include="Header\Ducks\DuckView.h" />
     <ClInclude Include="Header\Ducks\DuckConfig.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
+    <ClInclude Include="Header\Player\PlayerService.h" />
+    <ClInclude Include="Header\Player\PlayerController.h" />
+    <ClInclude Include="Header\Player\PlayerModel.h" />
   </ItemGroup>
 </Project>

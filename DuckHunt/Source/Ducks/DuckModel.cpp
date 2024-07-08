@@ -2,7 +2,7 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckConfig.h"
 
 namespace Duck
-{
+{ 
 	DuckModel::DuckModel()
 	{
 		
