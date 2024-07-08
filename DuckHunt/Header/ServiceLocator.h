@@ -4,6 +4,7 @@
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Gameplay\GameplayService.h"
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckService.h"
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Time\TimeService.h"
+#include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Player\PlayerService.h"
 
 namespace Global
 {
@@ -12,6 +13,7 @@ namespace Global
     using namespace Gameplay;
     using namespace Duck;
     using namespace Time;
+    using namespace Player;
 
     class ServiceLocator
     {
@@ -22,6 +24,7 @@ namespace Global
         GameplayService* gameplay_service;
         DuckService* duck_service;
         TimeService* time_service;
+        PlayerService* player_service;
 
         // Constructor for initializing the ServiceLocator.
         ServiceLocator();
@@ -48,7 +51,8 @@ namespace Global
         EventService* getEventService(); // Retrieve the EventService instance
         GameplayService* getGameplayService(); // Retrieve the GameplayService instance
         DuckService* getDuckService(); // Retrieve the DuckService instance
-        TimeService* getTimeService(); // Retrieve the DuckService instance
+        TimeService* getTimeService(); // Retrieve the TimeService instance
+        PlayerService* getPlayerService(); // Retrieve the PlayerService instance
 
     };
 }
