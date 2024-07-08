@@ -2,12 +2,16 @@
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Graphics\GraphicService.h"
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Events\EventService.h"
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Gameplay\GameplayService.h"
+#include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckService.h"
+#include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Time\TimeService.h"
 
 namespace Global
 {
     using namespace Graphic;
     using namespace Event;
     using namespace Gameplay;
+    using namespace Duck;
+    using namespace Time;
 
     class ServiceLocator
     {
@@ -16,6 +20,8 @@ namespace Global
         GraphicService* graphic_service;
         EventService* event_service;
         GameplayService* gameplay_service;
+        DuckService* duck_service;
+        TimeService* time_service;
 
         // Constructor for initializing the ServiceLocator.
         ServiceLocator();
@@ -41,6 +47,8 @@ namespace Global
         GraphicService* getGraphicService();   // Retrieve the GraphicService instance
         EventService* getEventService(); // Retrieve the EventService instance
         GameplayService* getGameplayService(); // Retrieve the GameplayService instance
+        DuckService* getDuckService(); // Retrieve the DuckService instance
+        TimeService* getTimeService(); // Retrieve the DuckService instance
 
     };
 }
