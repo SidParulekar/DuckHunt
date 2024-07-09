@@ -1,14 +1,13 @@
 #pragma once
-
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\GameplayUIController.h"
 namespace Player
 {
 	class PlayerModel
 	{
 	private:
 
-		//friend methods
-		//friend void UI::GameplayUI::GameplayUIController::updateScoreText();
-		//friend void UI::GameplayUI::GameplayUIController::drawBullets();
+		friend void UI::GameplayUI::GameplayUIController::updateScoreText();
+		friend void UI::GameplayUI::GameplayUIController::drawBullets();
 
 		friend class PlayerController;
 

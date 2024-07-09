@@ -1,10 +1,16 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckService.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckController.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckModel.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\WaveUIController.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\ServiceLocator.h"
+
 
 namespace Duck
 {
 	using namespace Global;
+	using namespace UI::WaveUI;
+
+	float DuckModel::duck_movement_speed;
 
 	DuckService::DuckService()
 	{
@@ -14,6 +20,7 @@ namespace Duck
 	void DuckService::initialize()
 	{
 		spawn_timer = spawn_interval;
+		DuckModel::duck_movement_speed = 350.f;
 	}
 
 	void DuckService::update()
@@ -93,6 +100,15 @@ namespace Duck
 	{
 		destroy();
 		spawn_timer = 0.0f;
+		if (WaveUIController::wave_number == 1)
+		{
+			DuckModel::duck_movement_speed = 350.f;
+		}
+		else
+		{
+			DuckModel::duck_movement_speed += 250.f;
+		}
+		
 	}
 
 	

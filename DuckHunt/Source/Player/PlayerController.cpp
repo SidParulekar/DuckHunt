@@ -1,9 +1,11 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Player\PlayerController.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Game\GameService.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\ServiceLocator.h"
 
 namespace Player
 {
 	using namespace Global;
+	using namespace Game;
 
 	PlayerController::PlayerController()
 	{
@@ -29,6 +31,7 @@ namespace Player
 
 		if (PlayerModel::bullets <= 0)
 		{
+			GameService::setGameState(GameState::WAVE); 
 			ServiceLocator::getInstance()->getGameplayService()->restart();
 		}
 

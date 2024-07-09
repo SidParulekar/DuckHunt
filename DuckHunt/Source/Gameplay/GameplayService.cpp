@@ -29,7 +29,7 @@ namespace Gameplay
 	void GameplayService::restart()
 	{
 		ServiceLocator::getInstance()->getDuckService()->reset();
-		ServiceLocator::getInstance()->getPlayerService()->reset(); 
+		ServiceLocator::getInstance()->getPlayerService()->reset();
 	}
 
 	GameplayService::~GameplayService()

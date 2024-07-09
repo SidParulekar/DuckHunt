@@ -4,7 +4,7 @@ namespace Game
 {
 	using namespace Global;
 
-	GameState GameService::current_state = GameState::BOOT;
+	GameState GameService::current_state = GameState::WAVE; 
 
 	GameService::GameService() //Constructor
 	{

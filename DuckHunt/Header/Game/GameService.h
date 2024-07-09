@@ -8,7 +8,7 @@ namespace Game
 
 	enum class GameState
 	{
-		BOOT,
+		WAVE,
 		GAMEPLAY,
 	};
 

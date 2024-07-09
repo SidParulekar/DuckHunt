@@ -36,8 +36,11 @@
     <ClCompile Include="Source\Player\PlayerService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
     <ClCompile Include="Source\Time\TimeService.cpp" />
+    <ClCompile Include="Source\UI\GameplayUIController.cpp" />
     <ClCompile Include="Source\UI\ImageView.cpp" />
+    <ClCompile Include="Source\UI\TextView.cpp" />
     <ClCompile Include="Source\UI\UIService.cpp" />
+    <ClCompile Include="Source\UI\WaveUIController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Config.h" />
@@ -57,8 +60,12 @@
     <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
+    <ClInclude Include="Header\UI\GameplayUIController.h" />
     <ClInclude Include="Header\UI\ImageView.h" />
+    <ClInclude Include="Header\UI\IUIController.h" />
+    <ClInclude Include="Header\UI\TextView.h" />
     <ClInclude Include="Header\UI\UIService.h" />
+    <ClInclude Include="Header\UI\WaveUIController.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
