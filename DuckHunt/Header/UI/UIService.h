@@ -32,6 +32,12 @@ namespace UI
 
 		IUIController* getCurrentUIController();
 
+		WaveUIController* getWaveUIController();
+
+		ResultUIController* getResultUIController();
+
+		GameplayUIController* getGameplayUIController();
+
 	};
 
 }

@@ -69,6 +69,21 @@ namespace UI
 		}
 	}
 
+	WaveUIController* UIService::getWaveUIController()
+	{
+		return wave_ui_controller;
+	}
+
+	ResultUIController* UIService::getResultUIController()
+	{
+		return result_ui_controller;
+	}
+
+	GameplayUIController* UIService::getGameplayUIController()
+	{
+		return gameplay_ui_controller;
+	}
+
 	UIService::~UIService()
 	{
 		destroy();

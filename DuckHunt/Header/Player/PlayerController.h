@@ -9,7 +9,9 @@ namespace Player
 	private:
 		PlayerModel* player_model;
 
-		int current_score;
+		static int current_score;
+
+		friend void UI::GameplayUI::GameplayUIController::endRound();
 
 	public:
 

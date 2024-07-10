@@ -6,6 +6,9 @@ namespace Player
 {
 	using namespace Global;
 	using namespace Game;
+	using namespace UI::GameplayUI;
+
+	int PlayerController::current_score;
 
 	PlayerController::PlayerController()
 	{
@@ -31,9 +34,7 @@ namespace Player
 
 		if (PlayerModel::bullets <= 0)
 		{
-			GameService::setGameState(GameState::RESULT); 
-			current_score = PlayerModel::score;
-			ServiceLocator::getInstance()->getGameplayService()->restart();
+			ServiceLocator::getInstance()->getUIService()->getGameplayUIController()->endRound();
 		}
 
 		//else reset();

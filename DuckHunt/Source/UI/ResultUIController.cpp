@@ -80,11 +80,14 @@ namespace UI
 
 			if (player_score >= WaveUIController::win_score)
 			{
+				result_text->setTextColor(sf::Color::Green);
 				return "ROUND WON";
 			}
 
 			else
 			{
+				result_text->setTextColor(sf::Color::Red);
+				ServiceLocator::getInstance()->getUIService()->getWaveUIController()->replay();
 				return "ROUND LOST";
 			}
 

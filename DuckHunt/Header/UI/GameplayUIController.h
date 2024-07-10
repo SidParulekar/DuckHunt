@@ -24,14 +24,22 @@ namespace UI
 			const float bullet_sprite_width = 60.f;
 			const float bullet_sprite_height = 60.f;
 
+			float round_time = 15.f;
+			
+
 			const sf::Color text_color = sf::Color::White;
 
 			ImageView* bullet_image;
 			TextView* score_text; 
 
+			TextView* timer_text;
+
 			void createUIElements() override;
 			void initializeImage();
 			void initializeText();
+
+			void updateRoundTimer();
+			
 
 			void destroy();
 
@@ -43,6 +51,11 @@ namespace UI
 			void update() override;
 			void render() override;
 
+			void processRound();
+
+			void endRound();
+
+			void updateTimerText();
 			void updateScoreText();
 			void drawBullets();
 		};

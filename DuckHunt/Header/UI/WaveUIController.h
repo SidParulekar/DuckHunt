@@ -14,12 +14,10 @@ namespace UI
 		private:
 
 			const float wave_interval = 4.0f;
-			//const float result_interval = 3.0f;
 
 			float wave_timer;
-			//float result_timer;
 
-			//static int current_wave;
+			int current_wave;
 
 			static int wave_number;
 			const int max_waves = 3;
@@ -33,9 +31,6 @@ namespace UI
 
 			TextView* wave_text;
 			TextView* required_score_text;
-
-			//TextView* result_text;
-			//TextView* player_score_text;
 
 			friend void Duck::DuckService::reset();
 			friend sf::String ResultUI::ResultUIController::checkResult();
@@ -57,6 +52,8 @@ namespace UI
 			void render() override;
 
 			void reset();
+
+			void replay();
 
 			void updateWaveNumber();
 			void updateRequiredScore();

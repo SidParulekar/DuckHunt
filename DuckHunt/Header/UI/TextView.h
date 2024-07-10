@@ -26,7 +26,7 @@ namespace Text
 		void setFont(FontType font_type);
 		void setFontSize(int font_size);
 		void setTextPosition(sf::Vector2f position);
-		void setTextColor(sf::Color color);
+		
 
 	public:
 		TextView();
@@ -42,5 +42,7 @@ namespace Text
 		void setTextCentreAligned();
 
 		void setTextXCentreAligned(float y_position);
+
+		void setTextColor(sf::Color color);
 	};
 }

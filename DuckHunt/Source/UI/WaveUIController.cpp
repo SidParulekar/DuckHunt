@@ -29,6 +29,7 @@ namespace UI
 		{
 			wave_timer = 0.0f;
 			wave_number = 1;
+			current_wave = wave_number;
 			win_score = required_score;
 			initializeText();
 		}
@@ -39,13 +40,13 @@ namespace UI
 
 			wave_text->initialize(wave_string, sf::Vector2f(0, 0), FontType::DS_DIGIB, font_size, text_color);
 
-			wave_text->setTextXCentreAligned(300.f);
+			wave_text->setTextXCentreAligned(250.f);
 
-			sf::String required_score_string = "Required score to win this round: 400";
+			sf::String required_score_string = "Required score to win: 400";
 
 			required_score_text->initialize(required_score_string, sf::Vector2f(0, 0), FontType::DS_DIGIB, font_size, text_color);
 
-			required_score_text->setTextXCentreAligned(500.f);
+			required_score_text->setTextXCentreAligned(400.f);
 			
 		}
 
@@ -68,11 +69,13 @@ namespace UI
 				if (wave_number == max_waves)
 				{
 					win_score = required_score;
+					current_wave = wave_number;
 					reset();
 				}
 				else
 				{
 					wave_timer = 0.0f;
+					current_wave = wave_number;
 					win_score = required_score;
 					updateWaveNumber();	
 					updateRequiredScore();
@@ -91,7 +94,7 @@ namespace UI
 		void WaveUIController::updateRequiredScore()
 		{
 			required_score -= 100;
-			sf::String required_score_string = "Required score to win this round: " + std::to_string(required_score);
+			sf::String required_score_string = "Required score to win: " + std::to_string(required_score);
 			required_score_text->setText(required_score_string); 
 		}
 
@@ -110,8 +113,20 @@ namespace UI
 			sf::String wave_string = "WAVE 1";
 			wave_text->setText(wave_string);
 
-			sf::String required_score_string = "Required score to win this round: 400";
+			sf::String required_score_string = "Required score to win: 400";
 			required_score_text->setText(required_score_string);
+		}
+
+		void WaveUIController::replay()
+		{
+			wave_number = current_wave;
+			required_score = win_score;
+
+			sf::String wave_string = "WAVE " + std::to_string(wave_number); 
+			wave_text->setText(wave_string); 
+
+			sf::String required_score_string = "Required score to win: " + std::to_string(required_score); 
+			required_score_text->setText(required_score_string); 
 		}
 		
 		WaveUIController::~WaveUIController()

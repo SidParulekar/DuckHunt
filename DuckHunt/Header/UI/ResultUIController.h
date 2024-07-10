@@ -23,6 +23,7 @@ namespace UI
 			TextView* result_text;
 			TextView* player_score_text;
 
+
 			void createUIElements() override;
 			void initializeText();
 

@@ -25,8 +25,11 @@ namespace Duck
 
 	void DuckService::update()
 	{
-		updateSpawnTimer();
-		processDuckSpawn();
+		if (duck_number < max_ducks)
+		{
+			updateSpawnTimer();
+			processDuckSpawn();
+		}
 
 		for (int i = 0; i < duck_list.size(); i++) duck_list[i]->update();
 
@@ -43,6 +46,7 @@ namespace Duck
 		if (spawn_timer >= spawn_interval)
 		{
 			spawnDuck();
+			duck_number += 1;
 			spawn_timer = 0.0f;
 		}
 	}
@@ -100,14 +104,21 @@ namespace Duck
 	{
 		destroy();
 		spawn_timer = 0.0f;
-		if (WaveUIController::wave_number == 1)
+		duck_number = 0;
+
+		if (ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult() == "ROUND WON")
 		{
-			DuckModel::duck_movement_speed = 350.f;
-		}
-		else
-		{
-			DuckModel::duck_movement_speed += 250.f;
-		}
+			if (WaveUIController::wave_number == 1) 
+			{
+				DuckModel::duck_movement_speed = 350.f;
+				max_ducks = 4;
+			}
+			else
+			{
+				DuckModel::duck_movement_speed += 250.f;
+				max_ducks += 2;
+			}
+		}	
 		
 	}
 

@@ -8,6 +8,7 @@ namespace Player
 
 		friend void UI::GameplayUI::GameplayUIController::updateScoreText();
 		friend void UI::GameplayUI::GameplayUIController::drawBullets();
+		friend void UI::GameplayUI::GameplayUIController::endRound();
 
 		friend class PlayerController;
 
