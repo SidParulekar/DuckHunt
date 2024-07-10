@@ -31,11 +31,17 @@ namespace Player
 
 		if (PlayerModel::bullets <= 0)
 		{
-			GameService::setGameState(GameState::WAVE); 
+			GameService::setGameState(GameState::RESULT); 
+			current_score = PlayerModel::score;
 			ServiceLocator::getInstance()->getGameplayService()->restart();
 		}
 
 		//else reset();
+	}
+
+	int PlayerController::getPlayerScore()
+	{
+		return current_score;
 	}
 
 	void PlayerController::reset()

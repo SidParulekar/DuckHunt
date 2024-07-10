@@ -85,6 +85,12 @@ namespace Text
 		text.setPosition(sf::Vector2f(x_position, y_position));
 	}
 
+	void TextView::setTextXCentreAligned(float y_position)
+	{
+		float x_position = (game_window->getSize().x - text.getLocalBounds().width) / 2;
+		text.setPosition(sf::Vector2f(x_position, y_position)); 
+	}
+
 	TextView::~TextView()
 	{
 	}

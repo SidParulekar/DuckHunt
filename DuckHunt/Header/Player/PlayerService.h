@@ -21,6 +21,8 @@ namespace Player
 
         void increaseScore(int val);
 
+        int getPlayerScore();
+
         void reset();
     };
 }

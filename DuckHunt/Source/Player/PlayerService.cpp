@@ -23,6 +23,11 @@ namespace Player
 		player_controller->increaseScore(val);
 	}
 
+	int PlayerService::getPlayerScore()
+	{
+		return player_controller->getPlayerScore();
+	}
+
 	void PlayerService::reset()
 	{
 		player_controller->reset();

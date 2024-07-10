@@ -10,6 +10,7 @@ namespace Game
 	{
 		WAVE,
 		GAMEPLAY,
+		RESULT
 	};
 
 	class GameService

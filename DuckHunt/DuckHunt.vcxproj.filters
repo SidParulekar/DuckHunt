@@ -23,6 +23,7 @@
     <ClCompile Include="Source\UI\TextView.cpp" />
     <ClCompile Include="Source\UI\GameplayUIController.cpp" />
     <ClCompile Include="Source\UI\WaveUIController.cpp" />
+    <ClCompile Include="Source\UI\ResultUIController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Graphics\GraphicService.h" />
@@ -48,5 +49,6 @@
     <ClInclude Include="Header\UI\GameplayUIController.h" />
     <ClInclude Include="Header\UI\IUIController.h" />
     <ClInclude Include="Header\UI\WaveUIController.h" />
+    <ClInclude Include="Header\UI\ResultUIController.h" />
   </ItemGroup>
 </Project>

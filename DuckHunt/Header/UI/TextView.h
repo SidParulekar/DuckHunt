@@ -40,5 +40,7 @@ namespace Text
 
 		void setText(sf::String text_value);
 		void setTextCentreAligned();
+
+		void setTextXCentreAligned(float y_position);
 	};
 }

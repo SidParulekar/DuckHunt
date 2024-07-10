@@ -9,6 +9,8 @@ namespace Player
 	private:
 		PlayerModel* player_model;
 
+		int current_score;
+
 	public:
 
 		PlayerController();
@@ -22,6 +24,8 @@ namespace Player
 
 		void decreaseBullets();
 		inline void increaseScore(int val) { PlayerModel::score += val; }
+
+		int getPlayerScore();
 
 
 	};

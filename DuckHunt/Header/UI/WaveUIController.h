@@ -1,6 +1,7 @@
 #pragma once
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\IUIController.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckService.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\ResultUIController.h"
 
 namespace UI
 {
@@ -13,24 +14,31 @@ namespace UI
 		private:
 
 			const float wave_interval = 4.0f;
+			//const float result_interval = 3.0f;
 
 			float wave_timer;
+			//float result_timer;
 
 			//static int current_wave;
 
 			static int wave_number;
 			const int max_waves = 3;
 
-			const float font_size = 100.f;
+			int required_score = 400;
+			static int win_score;
 
-			const float text_y_position = 15.f;
-			const float wave_text_x_position = 60.f;
+			const float font_size = 100.f;
 
 			const sf::Color text_color = sf::Color::White;
 
 			TextView* wave_text;
+			TextView* required_score_text;
+
+			//TextView* result_text;
+			//TextView* player_score_text;
 
 			friend void Duck::DuckService::reset();
+			friend sf::String ResultUI::ResultUIController::checkResult();
 
 			void createUIElements() override;
 			void initializeText();
@@ -51,6 +59,7 @@ namespace UI
 			void reset();
 
 			void updateWaveNumber();
+			void updateRequiredScore();
 
 		};
 	}
