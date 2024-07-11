@@ -24,6 +24,7 @@
     <ClCompile Include="Source\UI\GameplayUIController.cpp" />
     <ClCompile Include="Source\UI\WaveUIController.cpp" />
     <ClCompile Include="Source\UI\ResultUIController.cpp" />
+    <ClCompile Include="Source\UI\GameOverUIController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Graphics\GraphicService.h" />
@@ -50,5 +51,6 @@
     <ClInclude Include="Header\UI\IUIController.h" />
     <ClInclude Include="Header\UI\WaveUIController.h" />
     <ClInclude Include="Header\UI\ResultUIController.h" />
+    <ClInclude Include="Header\UI\GameOverUIController.h" />
   </ItemGroup>
 </Project>

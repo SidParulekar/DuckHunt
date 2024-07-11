@@ -1,7 +1,5 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\GameplayUIController.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Player\PlayerModel.h"
-#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Player\PlayerController.h"
-#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Game\GameService.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Config.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\ServiceLocator.h"
 
@@ -10,7 +8,6 @@ namespace UI
 	namespace GameplayUI
 	{
 		using namespace Global;
-		using namespace Game;
 
 		GameplayUIController::GameplayUIController()
 		{
@@ -76,17 +73,14 @@ namespace UI
 			}
 			if (round_time <= 0.f)
 			{
-				endRound();
+				ServiceLocator::getInstance()->getGameplayService()->endRound();
 			}
 		}
 
-		void GameplayUIController::endRound()
+		void GameplayUIController::reset()
 		{
-			GameService::setGameState(GameState::RESULT);
 			round_time = 15.f;
 			timer_text->setTextColor(sf::Color::White);
-			PlayerController::current_score = PlayerModel::score;
-			ServiceLocator::getInstance()->getGameplayService()->restart();
 		}
 
 		void GameplayUIController::updateScoreText()

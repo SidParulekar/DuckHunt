@@ -10,6 +10,7 @@ namespace UI
 		gameplay_ui_controller = nullptr;
 		wave_ui_controller = nullptr;
 		result_ui_controller = nullptr;
+		game_over_ui_controller = nullptr;
 		createControllers();
 	}
 
@@ -18,6 +19,7 @@ namespace UI
 		gameplay_ui_controller = new GameplayUIController();
 		wave_ui_controller = new WaveUIController();
 		result_ui_controller = new ResultUIController();
+		game_over_ui_controller = new GameOverUIController();
 	}
 
 	void UIService::initialize()
@@ -31,6 +33,7 @@ namespace UI
 		gameplay_ui_controller->initialize();
 		wave_ui_controller->initialize();
 		result_ui_controller->initialize();
+		game_over_ui_controller->initialize();
 	}
 	
 	void UIService::update()
@@ -64,6 +67,9 @@ namespace UI
 		case GameState::RESULT: 
 			return result_ui_controller;
 
+		case GameState::GAME_OVER:
+			return game_over_ui_controller;
+
 		default:
 			return nullptr;
 		}
@@ -94,6 +100,7 @@ namespace UI
 		delete gameplay_ui_controller;
 		delete wave_ui_controller;
 		delete result_ui_controller;
+		delete game_over_ui_controller;
 	}
 
 }

@@ -34,10 +34,20 @@ namespace Player
 
 		if (PlayerModel::bullets <= 0)
 		{
-			ServiceLocator::getInstance()->getUIService()->getGameplayUIController()->endRound();
+			ServiceLocator::getInstance()->getGameplayService()->endRound();
 		}
 
 		//else reset();
+	}
+
+	void PlayerController::addTotalScore()
+	{
+		total_score += current_score;
+	}
+
+	int PlayerController::getTotalScore()
+	{
+		return total_score;
 	}
 
 	int PlayerController::getPlayerScore()

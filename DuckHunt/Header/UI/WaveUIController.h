@@ -25,6 +25,8 @@ namespace UI
 			int required_score = 400;
 			static int win_score;
 
+			bool final_round = 0;
+
 			const float font_size = 100.f;
 
 			const sf::Color text_color = sf::Color::White;
@@ -54,6 +56,8 @@ namespace UI
 			void reset();
 
 			void replay();
+
+			bool isFinalRound();
 
 			void updateWaveNumber();
 			void updateRequiredScore();

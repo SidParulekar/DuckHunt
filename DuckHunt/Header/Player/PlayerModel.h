@@ -1,4 +1,5 @@
 #pragma once
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Gameplay\GameplayService.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\GameplayUIController.h"
 namespace Player
 {
@@ -8,7 +9,7 @@ namespace Player
 
 		friend void UI::GameplayUI::GameplayUIController::updateScoreText();
 		friend void UI::GameplayUI::GameplayUIController::drawBullets();
-		friend void UI::GameplayUI::GameplayUIController::endRound();
+		friend void Gameplay::GameplayService::endRound();
 
 		friend class PlayerController;
 

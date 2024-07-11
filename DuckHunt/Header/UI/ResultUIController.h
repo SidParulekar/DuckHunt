@@ -23,6 +23,8 @@ namespace UI
 			TextView* result_text;
 			TextView* player_score_text;
 
+			bool round_won = 0;
+
 
 			void createUIElements() override;
 			void initializeText();
@@ -40,7 +42,7 @@ namespace UI
 
 			void initialize() override;
 			void update() override;
-			void render() override;
+			void render() override; 
 
 			sf::String checkResult();
 

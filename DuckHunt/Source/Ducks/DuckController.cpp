@@ -194,6 +194,9 @@ namespace Duck
 	{
 		return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() &&
 			button_sprite->getGlobalBounds().contains(mouse_position); 
+
+		//sf::FloatRect bounding_box = button_sprite->getGlobalBounds();
+		
 	}
 	
 	void DuckController::destroy()

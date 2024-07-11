@@ -23,6 +23,10 @@ namespace Player
 
         int getPlayerScore();
 
+        void addTotalScore();
+
+        int getTotalScore();
+
         void reset();
     };
 }

@@ -11,7 +11,9 @@ namespace Player
 
 		static int current_score;
 
-		friend void UI::GameplayUI::GameplayUIController::endRound();
+		int total_score = 0;
+
+		friend void Gameplay::GameplayService::endRound();
 
 	public:
 
@@ -26,6 +28,10 @@ namespace Player
 
 		void decreaseBullets();
 		inline void increaseScore(int val) { PlayerModel::score += val; }
+
+		void addTotalScore();
+
+		int getTotalScore();
 
 		int getPlayerScore();
 

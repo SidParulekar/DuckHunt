@@ -55,6 +55,8 @@ namespace UI
 
 			void endRound();
 
+			void reset();
+
 			void updateTimerText();
 			void updateScoreText();
 			void drawBullets();

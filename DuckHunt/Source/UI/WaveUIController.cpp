@@ -68,8 +68,9 @@ namespace UI
 				GameService::setGameState(GameState::GAMEPLAY);
 				if (wave_number == max_waves)
 				{
-					win_score = required_score;
 					current_wave = wave_number;
+					win_score = required_score;
+					final_round = 1;
 					reset();
 				}
 				else
@@ -96,6 +97,11 @@ namespace UI
 			required_score -= 100;
 			sf::String required_score_string = "Required score to win: " + std::to_string(required_score);
 			required_score_text->setText(required_score_string); 
+		}
+
+		bool WaveUIController::isFinalRound()
+		{
+			return final_round;
 		}
 
 		void WaveUIController::render()

@@ -36,6 +36,7 @@
     <ClCompile Include="Source\Player\PlayerService.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
     <ClCompile Include="Source\Time\TimeService.cpp" />
+    <ClCompile Include="Source\UI\GameOverUIController.cpp" />
     <ClCompile Include="Source\UI\GameplayUIController.cpp" />
     <ClCompile Include="Source\UI\ImageView.cpp" />
     <ClCompile Include="Source\UI\ResultUIController.cpp" />
@@ -61,6 +62,7 @@
     <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
+    <ClInclude Include="Header\UI\GameOverUIController.h" />
     <ClInclude Include="Header\UI\GameplayUIController.h" />
     <ClInclude Include="Header\UI\ImageView.h" />
     <ClInclude Include="Header\UI\IUIController.h" />

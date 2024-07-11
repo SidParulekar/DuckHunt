@@ -28,6 +28,16 @@ namespace Player
 		return player_controller->getPlayerScore();
 	}
 
+	void PlayerService::addTotalScore()
+	{
+		player_controller->addTotalScore();
+	}
+
+	int PlayerService::getTotalScore()
+	{
+		return player_controller->getTotalScore();
+	}
+
 	void PlayerService::reset()
 	{
 		player_controller->reset();

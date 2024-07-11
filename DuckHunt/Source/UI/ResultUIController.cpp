@@ -60,7 +60,21 @@ namespace UI
 		{
 			if (result_timer >= result_interval)
 			{
-				GameService::setGameState(GameState::WAVE);
+
+				if (ServiceLocator::getInstance()->getUIService()->getWaveUIController()->isFinalRound() && round_won)
+				{
+					ServiceLocator::getInstance()->getPlayerService()->addTotalScore(); 
+					GameService::setGameState(GameState::GAME_OVER);
+				}
+
+				else
+				{
+					if (round_won)
+					{
+						ServiceLocator::getInstance()->getPlayerService()->addTotalScore(); 
+					}
+					GameService::setGameState(GameState::WAVE);
+				}
 				result_timer = 0.0f;
 			}
 		}
@@ -81,13 +95,15 @@ namespace UI
 			if (player_score >= WaveUIController::win_score)
 			{
 				result_text->setTextColor(sf::Color::Green);
+				round_won = 1;
 				return "ROUND WON";
 			}
 
 			else
 			{
 				result_text->setTextColor(sf::Color::Red);
-				ServiceLocator::getInstance()->getUIService()->getWaveUIController()->replay();
+				round_won = 0;
+				ServiceLocator::getInstance()->getGameplayService()->restartRound(); 
 				return "ROUND LOST";
 			}
 
