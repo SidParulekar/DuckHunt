@@ -41,6 +41,14 @@ namespace Gameplay
 
 	void GameplayService::newGame()
 	{
+		PlayerController::total_score = 0;
+		GameService::setGameState(GameState::WAVE);
+		ServiceLocator::getInstance()->getUIService()->getWaveUIController()->reset();
+		ServiceLocator::getInstance()->getUIService()->getResultUIController()->reset(); 
+		ServiceLocator::getInstance()->getDuckService()->reset();
+		ServiceLocator::getInstance()->getPlayerService()->reset();
+		
+		
 	}
 
 	void GameplayService::restartRound()

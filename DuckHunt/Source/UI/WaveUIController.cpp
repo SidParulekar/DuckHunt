@@ -71,7 +71,7 @@ namespace UI
 					current_wave = wave_number;
 					win_score = required_score;
 					final_round = 1;
-					reset();
+					wave_timer = 0.0f;
 				}
 				else
 				{
@@ -115,6 +115,7 @@ namespace UI
 			wave_timer = 0.0f;
 			wave_number = 1;
 			required_score = 400;
+			final_round = 0;
 
 			sf::String wave_string = "WAVE 1";
 			wave_text->setText(wave_string);

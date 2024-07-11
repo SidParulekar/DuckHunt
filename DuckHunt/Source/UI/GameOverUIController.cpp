@@ -1,4 +1,5 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\GameOverUIController.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Config.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\ServiceLocator.h"
 
 namespace UI
@@ -16,11 +17,15 @@ namespace UI
 		{
 			game_over_text = new TextView();
 			total_score_text = new TextView();
+
+			replay_button = new ButtonView();
 		}
 
 		void GameOverUIController::initialize()
 		{
 			initializeText();
+			initializeButtons();
+			registerButtonCallback();
 		}
 
 		void GameOverUIController::initializeText()
@@ -37,6 +42,22 @@ namespace UI
 
 			total_score_text->setTextXCentreAligned(400.f);
 		}
+
+		void GameOverUIController::initializeButtons()
+		{
+			replay_button->initialize("Replay Button", Config::replay_button_texture_path, button_width, button_height, sf::Vector2f(0, 630.f));
+			replay_button->setCentreAlinged(); 
+		}
+
+		void GameOverUIController::registerButtonCallback()
+		{
+			replay_button->registerCallbackFuntion(std::bind(&GameOverUIController::replayButtonCallback, this));
+		}
+
+		void GameOverUIController::replayButtonCallback()
+		{
+			ServiceLocator::getInstance()->getGameplayService()->newGame();
+		}
 		
 		void GameOverUIController::update()
 		{
@@ -44,11 +65,15 @@ namespace UI
 
 			sf::String total_score_string = "Final Score: " + std::to_string(total_score);
 			total_score_text->setText(total_score_string);
+
+			replay_button->update();
 		}
 		void GameOverUIController::render()
 		{
 			game_over_text->render();
 			total_score_text->render();
+
+			replay_button->render();
 		}
 
 		GameOverUIController::~GameOverUIController()
@@ -60,6 +85,8 @@ namespace UI
 		{
 			delete game_over_text;
 			delete total_score_text;
+
+			delete replay_button;
 		}
 	}
 }

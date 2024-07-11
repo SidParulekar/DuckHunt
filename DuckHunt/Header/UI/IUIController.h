@@ -1,5 +1,6 @@
 #pragma once
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\ImageView.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\ButtonView.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\TextView.h"
 #include <SFML/Graphics.hpp>
 

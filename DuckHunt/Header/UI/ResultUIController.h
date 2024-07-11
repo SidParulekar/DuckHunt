@@ -46,7 +46,7 @@ namespace UI
 
 			sf::String checkResult();
 
-			//void reset();
+			void reset();
 
 			
 		};

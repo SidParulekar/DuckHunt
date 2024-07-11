@@ -8,7 +8,11 @@ namespace Global
 
 	const sf::String Config::bullet_texture_path = "assets/textures/BulletSprite.png";
 
+	const sf::String Config::player_health_texture_path = "assets/textures/PlayerHealthSprite.png";
+
 	const sf::String Config::bubble_bobble_font_path = "assets/fonts/bubbleBobble.ttf";
 
 	const sf::String Config::DS_DIGIB_font_path = "assets/fonts/DS_DIGIB.ttf";
+
+	const sf::String Config::replay_button_texture_path = "assets/textures/ReplayButton.png";
 }

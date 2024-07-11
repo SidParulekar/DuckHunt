@@ -106,18 +106,16 @@ namespace Duck
 		spawn_timer = 0.0f;
 		duck_number = 0;
 
-		if (ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult() == "ROUND WON")
+		if (WaveUIController::wave_number == 1)
 		{
-			if (WaveUIController::wave_number == 1) 
-			{
-				DuckModel::duck_movement_speed = 350.f;
-				max_ducks = 4;
-			}
-			else
-			{
-				DuckModel::duck_movement_speed += 250.f;
-				max_ducks += 2;
-			}
+			DuckModel::duck_movement_speed = 350.f;
+			max_ducks = 4;
+		}
+
+		else if (ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult() == "ROUND WON")
+		{
+			DuckModel::duck_movement_speed += 250.f;
+			max_ducks += 2;	
 		}	
 		
 	}

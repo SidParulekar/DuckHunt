@@ -109,6 +109,12 @@ namespace UI
 
 		}
 
+		void ResultUIController::reset()
+		{
+			player_score = 0;
+			round_won = 0;
+		}
+
 		void ResultUIController::render()
 		{
 			result_text->render();

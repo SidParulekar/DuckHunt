@@ -11,9 +11,10 @@ namespace Player
 
 		static int current_score;
 
-		int total_score = 0;
+		static int total_score;
 
 		friend void Gameplay::GameplayService::endRound();
+		friend void Gameplay::GameplayService::newGame();
 
 	public:
 

@@ -6,10 +6,13 @@ namespace UI
 	namespace GameOverUI
 	{
 		using namespace Text;
+		using namespace Button;
 
 		class GameOverUIController : public IUIController
 		{
 		private:
+			const float button_width = 400.f;
+			const float button_height = 140.f;
 
 			const float font_size = 100.f;
 
@@ -20,9 +23,16 @@ namespace UI
 			TextView* game_over_text;
 			TextView* total_score_text;
 
+			ButtonView* replay_button;
+
 
 			void createUIElements() override;
 			void initializeText();
+			void initializeButtons();
+
+			void registerButtonCallback();
+
+			void replayButtonCallback();
 
 			void destroy();
 

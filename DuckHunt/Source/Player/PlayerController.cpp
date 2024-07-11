@@ -9,6 +9,7 @@ namespace Player
 	using namespace UI::GameplayUI;
 
 	int PlayerController::current_score;
+	int PlayerController::total_score;
 
 	PlayerController::PlayerController()
 	{
@@ -17,6 +18,7 @@ namespace Player
 	
 	void PlayerController::initialize()
 	{
+		total_score = 0;
 		player_model->initialize();
 	}
 
