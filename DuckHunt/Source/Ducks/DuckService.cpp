@@ -103,7 +103,7 @@ namespace Duck
 	void DuckService::reset()
 	{
 		destroy();
-		spawn_timer = 0.0f;
+		spawn_timer = spawn_interval;
 		duck_number = 0;
 
 		if (WaveUIController::wave_number == 1)

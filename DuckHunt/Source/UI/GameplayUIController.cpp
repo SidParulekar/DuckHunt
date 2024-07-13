@@ -21,6 +21,10 @@ namespace UI
 			score_text = new TextView(); 
 
 			timer_text = new TextView();
+
+			player_lives_image = new ImageView();
+
+			player_lives_text = new TextView();
 		}
 
 		void GameplayUIController::initialize()
@@ -32,6 +36,7 @@ namespace UI
 		void GameplayUIController::initializeImage()
 		{
 			bullet_image->initialize(Config::bullet_texture_path, bullet_sprite_width, bullet_sprite_height, sf::Vector2f(0, 0));
+			player_lives_image->initialize(Config::player_health_texture_path, lives_sprite_width, lives_sprite_height, sf::Vector2f(0, 0));
 		}
 
 		void GameplayUIController::initializeText()
@@ -42,6 +47,9 @@ namespace UI
 			sf::String timer_string = "15";
 			timer_text->initialize(timer_string, sf::Vector2f(0,0), FontType::BUBBLE_BOBBLE, font_size, text_color);
 			timer_text->setTextXCentreAligned(text_y_position);
+
+			sf::String player_lives_string = "Player Lives  :  ";
+			player_lives_text->initialize(player_lives_string, sf::Vector2f(player_lives_text_x_position, player_lives_text_y_position), FontType::BUBBLE_BOBBLE, font_size, text_color);
 
 		}
 		
@@ -93,7 +101,9 @@ namespace UI
 		{
 			timer_text->render();
 			score_text->render();
+			player_lives_text->render();
 			drawBullets();
+			drawLives();
 		}
 		
 		void GameplayUIController::drawBullets()
@@ -102,6 +112,15 @@ namespace UI
 			{
 				bullet_image->setPosition(sf::Vector2f(bullets_x_offset - (i * bullets_spacing), bullets_y_offset));
 				bullet_image->render();
+			}
+		}
+
+		void GameplayUIController::drawLives()
+		{
+			for (int i = 0; i < Player::PlayerModel::lives; i++)
+			{
+				player_lives_image->setPosition(sf::Vector2f(lives_x_offset + (i * lives_spacing), lives_y_offset));
+				player_lives_image->render();
 			}
 		}
 
@@ -115,6 +134,7 @@ namespace UI
 			delete bullet_image;
 			delete score_text;
 			delete timer_text;
+			delete player_lives_text;
 		}
 	}
 }

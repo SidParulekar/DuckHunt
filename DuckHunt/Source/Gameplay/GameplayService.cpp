@@ -47,13 +47,22 @@ namespace Gameplay
 		ServiceLocator::getInstance()->getUIService()->getResultUIController()->reset(); 
 		ServiceLocator::getInstance()->getDuckService()->reset();
 		ServiceLocator::getInstance()->getPlayerService()->reset();
-		
-		
+		ServiceLocator::getInstance()->getUIService()->getGameplayUIController()->reset(); 
 	}
 
 	void GameplayService::restartRound()
 	{
-		ServiceLocator::getInstance()->getUIService()->getWaveUIController()->replay();
+		PlayerModel::lives -= 1;
+		if (PlayerModel::lives <= 0)
+		{
+			PlayerModel::lives = PlayerModel::max_lives; 
+			GameService::setGameState(GameState::GAME_OVER);
+		}
+		else
+		{
+			ServiceLocator::getInstance()->getUIService()->getWaveUIController()->replay();
+			GameService::setGameState(GameState::WAVE); 
+		}	
 	}
 
 	GameplayService::~GameplayService()

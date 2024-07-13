@@ -24,6 +24,18 @@ namespace UI
 			const float bullet_sprite_width = 60.f;
 			const float bullet_sprite_height = 60.f;
 
+			const float player_lives_text_y_position = 910.f;
+			const float player_lives_text_x_position = 60.f;
+
+			const float lives_y_offset = 910.f;
+			const float lives_x_offset = 300.f;
+			const float lives_spacing = 60.f;
+
+			const float lives_sprite_width = 50.f;
+			const float lives_sprite_height = 50.f;
+
+
+
 			float round_time = 15.f;
 			
 
@@ -33,6 +45,9 @@ namespace UI
 			TextView* score_text; 
 
 			TextView* timer_text;
+
+			ImageView* player_lives_image;
+			TextView* player_lives_text;
 
 			void createUIElements() override;
 			void initializeImage();
@@ -53,13 +68,12 @@ namespace UI
 
 			void processRound();
 
-			void endRound();
-
 			void reset();
 
 			void updateTimerText();
 			void updateScoreText();
 			void drawBullets();
+			void drawLives();
 		};
 	}
 }

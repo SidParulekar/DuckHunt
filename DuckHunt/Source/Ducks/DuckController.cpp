@@ -190,10 +190,10 @@ namespace Duck
 		}
 	}
 
-	bool DuckController::shotDuck(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
+	bool DuckController::shotDuck(sf::Sprite* duck_sprite, sf::Vector2f mouse_position)
 	{
 		return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() &&
-			button_sprite->getGlobalBounds().contains(mouse_position); 
+			duck_sprite->getGlobalBounds().contains(mouse_position); 
 
 		//sf::FloatRect bounding_box = button_sprite->getGlobalBounds();
 		

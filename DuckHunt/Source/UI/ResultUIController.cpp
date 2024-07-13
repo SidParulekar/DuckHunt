@@ -46,7 +46,10 @@ namespace UI
 
 		void ResultUIController::update()
 		{	
-			updateResult();
+			if (result_timer == 0.0f)
+			{
+				updateResult(); 
+			}
 			updateResultTimer();
 			processResultScreen(); 
 		}
@@ -72,8 +75,13 @@ namespace UI
 					if (round_won)
 					{
 						ServiceLocator::getInstance()->getPlayerService()->addTotalScore(); 
+						GameService::setGameState(GameState::WAVE);
 					}
-					GameService::setGameState(GameState::WAVE);
+					else
+					{
+						ServiceLocator::getInstance()->getGameplayService()->restartRound(); 
+					}
+					
 				}
 				result_timer = 0.0f;
 			}
@@ -103,7 +111,6 @@ namespace UI
 			{
 				result_text->setTextColor(sf::Color::Red);
 				round_won = 0;
-				ServiceLocator::getInstance()->getGameplayService()->restartRound(); 
 				return "ROUND LOST";
 			}
 
