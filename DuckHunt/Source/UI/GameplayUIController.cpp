@@ -25,12 +25,18 @@ namespace UI
 			player_lives_image = new ImageView();
 
 			player_lives_text = new TextView();
+
+			radial_bullet_button = new ButtonView();
+
+			normal_bullet_button = new ButtonView();
 		}
 
 		void GameplayUIController::initialize()
 		{
 			initializeImage();
 			initializeText();
+			initializeButtons();
+			registerButtonCallbacks();
 		}
 
 		void GameplayUIController::initializeImage()
@@ -52,12 +58,20 @@ namespace UI
 			player_lives_text->initialize(player_lives_string, sf::Vector2f(player_lives_text_x_position, player_lives_text_y_position), FontType::BUBBLE_BOBBLE, font_size, text_color);
 
 		}
+
+		void GameplayUIController::initializeButtons()
+		{
+			normal_bullet_button->initialize("Normal Bullet Button", Config::bullet_texture_path, normal_bullet_button_sprite_width, normal_bullet_button_sprite_height, sf::Vector2f(normal_bullet_x_position, normal_bullet_button_y_position));
+			radial_bullet_button->initialize("Radial Bullet Button", Config::radial_bullet_texture_path, radial_bullet_button_sprite_width, radial_bullet_button_sprite_height, sf::Vector2f(radial_bullet_x_position, radial_bullet_button_y_position));
+		}
 		
 		void GameplayUIController::update()
 		{
 			updateRoundTimer();
 			processRound();
 			updateScoreText();
+			normal_bullet_button->update();
+			radial_bullet_button->update();
 		}
 
 
@@ -65,6 +79,22 @@ namespace UI
 		{
 			round_time -= ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 			updateTimerText();
+		}
+
+		void GameplayUIController::registerButtonCallbacks()
+		{
+			normal_bullet_button->registerCallbackFuntion(std::bind(&GameplayUIController::normalBulletButtonCallback, this));
+			radial_bullet_button->registerCallbackFuntion(std::bind(&GameplayUIController::radialBulletButtonCallback, this));
+		}
+
+		void GameplayUIController::normalBulletButtonCallback()
+		{
+			ServiceLocator::getInstance()->getPlayerService()->setBulletType("Normal");
+		}
+
+		void GameplayUIController::radialBulletButtonCallback()
+		{
+			ServiceLocator::getInstance()->getPlayerService()->setBulletType("Radial");
 		}
 
 		void GameplayUIController::updateTimerText()
@@ -104,6 +134,7 @@ namespace UI
 			player_lives_text->render();
 			drawBullets();
 			drawLives();
+			drawBulletButtons();
 		}
 		
 		void GameplayUIController::drawBullets()
@@ -124,10 +155,17 @@ namespace UI
 			}
 		}
 
+		void GameplayUIController::drawBulletButtons()
+		{
+			normal_bullet_button->render();
+			radial_bullet_button->render();
+		}
+
 		GameplayUIController::~GameplayUIController()
 		{
 			destroy();
 		}
+
 
 		void GameplayUIController::destroy()
 		{
@@ -135,6 +173,9 @@ namespace UI
 			delete score_text;
 			delete timer_text;
 			delete player_lives_text;
+			delete player_lives_image;
+			delete normal_bullet_button;
+			delete radial_bullet_button;
 		}
 	}
 }

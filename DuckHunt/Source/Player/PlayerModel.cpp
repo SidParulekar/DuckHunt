@@ -8,6 +8,7 @@ namespace Player
 	int PlayerModel::bullets;
 	int PlayerModel::score;
 	int PlayerModel::lives;
+	int PlayerModel::radial_bullet;
 
 	PlayerModel::PlayerModel()
 	{
@@ -23,9 +24,21 @@ namespace Player
 		reset();
 	}
 
+	void PlayerModel::setBulletType(sf::String type)
+	{
+		bullet_type = type;
+	}
+
+	sf::String PlayerModel::getBulletType()
+	{
+		return bullet_type;
+	}
+
 	void PlayerModel::reset()
 	{
 		bullets = max_bullets;
 		score = 0;	
+		radial_bullet = 1;
+		bullet_type = "Normal";
 	}
 }

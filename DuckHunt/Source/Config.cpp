@@ -8,6 +8,8 @@ namespace Global
 
 	const sf::String Config::bullet_texture_path = "assets/textures/BulletSprite.png";
 
+	const sf::String Config::radial_bullet_texture_path = "assets/textures/RadialBulletSprite.png";
+
 	const sf::String Config::player_health_texture_path = "assets/textures/PlayerHealthSprite.png";
 
 	const sf::String Config::bubble_bobble_font_path = "assets/fonts/bubbleBobble.ttf";

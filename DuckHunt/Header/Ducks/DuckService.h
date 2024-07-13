@@ -47,6 +47,8 @@ namespace Duck
 
 		void destroyDuck(DuckController* duck_controller);
 
+		void destroyRadialDucks();
+
 
 	};
 }

@@ -29,6 +29,9 @@ namespace Duck
 		void handleShotDucks();
 		bool shotDuck(sf::Sprite* button_sprite, sf::Vector2f mouse_position);
 
+		float radial_timer = 0.0f;
+		float radial_interval = 1.0f;
+
 		virtual void destroy();
 
 	public:

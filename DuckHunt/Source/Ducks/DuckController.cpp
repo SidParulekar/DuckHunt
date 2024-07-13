@@ -41,6 +41,7 @@ namespace Duck
 		move();
 		duck_view->update();
 		handleShotDucks();
+		
 	}
 
 	void DuckController::move()
@@ -192,9 +193,31 @@ namespace Duck
 
 	bool DuckController::shotDuck(sf::Sprite* duck_sprite, sf::Vector2f mouse_position)
 	{
-		return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() &&
-			duck_sprite->getGlobalBounds().contains(mouse_position); 
+		
+		if (ServiceLocator::getInstance()->getPlayerService()->getBulletType() == "Radial" 
+			&& ServiceLocator::getInstance()->getPlayerService()->deployedRadialBullet())
+		{
+			radial_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+			if (radial_timer >= radial_interval)
+			{
+				ServiceLocator::getInstance()->getPlayerService()->setBulletType("Normal");
+				radial_timer = 0.0f;
+				return false;
+			}
 
+			else
+			{
+				sf::FloatRect radial_hit_box = ServiceLocator::getInstance()->getPlayerService()->getRadialDamageArea();
+				return radial_hit_box.contains(duck_model->getDuckPosition());
+			}	
+		}
+
+		else
+		{
+			return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() && 
+				duck_sprite->getGlobalBounds().contains(mouse_position); 
+		}	
+		 
 		//sf::FloatRect bounding_box = button_sprite->getGlobalBounds();
 		
 	}

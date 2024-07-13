@@ -16,6 +16,8 @@ namespace Player
 		friend void Gameplay::GameplayService::endRound();
 		friend void Gameplay::GameplayService::newGame();
 
+		sf::FloatRect radial_hit_box; 
+
 	public:
 
 		PlayerController();
@@ -35,6 +37,13 @@ namespace Player
 		int getTotalScore();
 
 		int getPlayerScore();
+
+		void setBulletType(sf::String type);  
+		sf::String getBulletType();   
+
+		sf::FloatRect& getRadialDamageArea();
+
+		bool deployedRadialBullet();
 
 
 	};

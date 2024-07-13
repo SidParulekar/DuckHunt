@@ -7,6 +7,7 @@ namespace UI
 	{
 		using namespace Image;
 		using namespace Text;
+		using namespace Button;
 
 		class GameplayUIController: public IUIController
 		{
@@ -34,6 +35,20 @@ namespace UI
 			const float lives_sprite_width = 50.f;
 			const float lives_sprite_height = 50.f;
 
+			const float normal_bullet_button_y_position = 900.f;
+			const float radial_bullet_button_y_position = 920.f;
+
+			const float normal_bullet_x_position = 800.f;
+
+			const float radial_bullet_x_position = 1090.f;
+
+			const float normal_bullet_button_sprite_width = 150.f;
+			const float normal_bullet_button_sprite_height = 150.f;
+
+			const float radial_bullet_button_sprite_width = 50.f;
+			const float radial_bullet_button_sprite_height = 100.f;
+			
+
 
 
 			float round_time = 15.f;
@@ -49,11 +64,20 @@ namespace UI
 			ImageView* player_lives_image;
 			TextView* player_lives_text;
 
+			ButtonView* radial_bullet_button;
+			ButtonView* normal_bullet_button;
+
 			void createUIElements() override;
 			void initializeImage();
 			void initializeText();
+			void initializeButtons();
 
 			void updateRoundTimer();
+
+			void registerButtonCallbacks();
+
+			void normalBulletButtonCallback();
+			void radialBulletButtonCallback();
 			
 
 			void destroy();
@@ -74,6 +98,7 @@ namespace UI
 			void updateScoreText();
 			void drawBullets();
 			void drawLives();
+			void drawBulletButtons();
 		};
 	}
 }

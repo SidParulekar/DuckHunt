@@ -13,6 +13,7 @@ namespace Global
 		static const sf::String DS_DIGIB_font_path;
 
 		static const sf::String bullet_texture_path;
+		static const sf::String radial_bullet_texture_path;
 		static const sf::String player_health_texture_path;
 
 		static const sf::String replay_button_texture_path;

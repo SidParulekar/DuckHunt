@@ -23,6 +23,10 @@ namespace Player
 		static int bullets;
 		static int score;
 
+		sf::String bullet_type = "Normal";
+
+		static int radial_bullet;
+
 
 	public:
 		
@@ -30,6 +34,9 @@ namespace Player
 		~PlayerModel();
 
 		void initialize();
+
+		void setBulletType(sf::String type);
+		sf::String getBulletType();
 
 		void reset(); // Resets all the player data stats to initial values
 
