@@ -94,7 +94,10 @@ namespace UI
 
 		void GameplayUIController::radialBulletButtonCallback()
 		{
-			ServiceLocator::getInstance()->getPlayerService()->setBulletType("Radial");
+			if (!ServiceLocator::getInstance()->getPlayerService()->deployedRadialBullet())
+			{
+				ServiceLocator::getInstance()->getPlayerService()->setBulletType("Radial"); 
+			}	
 		}
 
 		void GameplayUIController::updateTimerText()

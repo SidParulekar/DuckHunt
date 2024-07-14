@@ -31,6 +31,11 @@ namespace Duck
 			processDuckSpawn();
 		}
 
+		if (duck_kills == max_ducks)
+		{
+			ServiceLocator::getInstance()->getGameplayService()->endRound();
+		}
+
 		for (int i = 0; i < duck_list.size(); i++) duck_list[i]->update();
 
 		destroyFlaggedDucks();
@@ -74,6 +79,7 @@ namespace Duck
 	{
 		flagged_duck_list.push_back(duck_controller);
 		duck_list.erase(std::remove(duck_list.begin(), duck_list.end(), duck_controller), duck_list.end());
+		duck_kills += 1;
 	}
 
 	void DuckService::destroyFlaggedDucks()
@@ -105,6 +111,7 @@ namespace Duck
 		destroy();
 		spawn_timer = spawn_interval;
 		duck_number = 0;
+		duck_kills = 0;
 
 		if (WaveUIController::wave_number == 1)
 		{

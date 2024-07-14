@@ -13,7 +13,8 @@ namespace Duck
 	{
 	protected:
 
-		DuckView* duck_view;
+		DuckView* flying_duck_view;
+		DuckView* shot_duck_view;
 		DuckModel* duck_model;
 
 		void move();
@@ -21,6 +22,8 @@ namespace Duck
 		void moveUpRight();
 		void moveDownLeft();
 		void moveDownRight();
+
+		void dropDown();
 		//void moveDown();
 
 		sf::Vector2f getRandomInitialPosition();
@@ -30,7 +33,7 @@ namespace Duck
 		bool shotDuck(sf::Sprite* button_sprite, sf::Vector2f mouse_position);
 
 		float radial_timer = 0.0f;
-		float radial_interval = 1.0f;
+		float radial_interval = 0.5f;
 
 		virtual void destroy();
 

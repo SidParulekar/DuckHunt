@@ -6,6 +6,8 @@ namespace Global
 
 	const sf::String Config::duck_texture_path = "assets/textures/DuckSprite.png";
 
+	const sf::String Config::shot_duck_texture_path = "assets/textures/ShotDuckSprite.png";
+
 	const sf::String Config::bullet_texture_path = "assets/textures/BulletSprite.png";
 
 	const sf::String Config::radial_bullet_texture_path = "assets/textures/RadialBulletSprite.png";

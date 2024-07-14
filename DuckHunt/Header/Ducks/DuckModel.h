@@ -30,6 +30,7 @@ namespace Duck
 		const sf::Vector2f bottom_most_position = sf::Vector2f(50.f, 720.f);
 
 		const float vertical_travel_distance = 150.0f;
+		const float drop_speed = 250.f;
 		static float duck_movement_speed;
 
 		sf::Vector2f getDuckPosition();

@@ -11,7 +11,9 @@ namespace Duck
 	DuckController::DuckController()
 	{
 		duck_model = new DuckModel();
-		duck_view = new DuckView();
+		flying_duck_view = new DuckView();
+		shot_duck_view = new DuckView();
+		
 	}
 
 	void DuckController::initialize()
@@ -19,7 +21,7 @@ namespace Duck
 		duck_model->initialize();
 		duck_model->setDuckPosition(getRandomInitialPosition());
 		duck_model->setMovementDirection(duck_model->getRandomMovementDirection());
-		duck_view->initialize(this);
+		flying_duck_view->initialize(this);
 	}
 
 	sf::Vector2f DuckController::getRandomInitialPosition()
@@ -36,12 +38,26 @@ namespace Duck
 		return sf::Vector2f(x_position, y_position);
 	}
 
+	DuckState DuckController::getDuckState()
+	{
+		return duck_model->getDuckState();
+	}
+
 	void DuckController::update()
 	{
-		move();
-		duck_view->update();
-		handleShotDucks();
-		
+		switch (getDuckState())
+		{
+		case Duck::DuckState::FLYING:
+			move();
+			flying_duck_view->update();
+			handleShotDucks(); 
+			break;
+
+		case Duck::DuckState::DEAD:
+			dropDown();
+			shot_duck_view->update();
+			break;
+		}	
 	}
 
 	void DuckController::move()
@@ -79,14 +95,12 @@ namespace Duck
 		if (currentPosition.y <= duck_model->top_most_position.y)
 		{
 			duck_model->setMovementDirection(MovementDirection::DOWN_LEFT);
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// If duck has reached left most position then start moving diagonally right
 		else if (currentPosition.x <= duck_model->left_most_position.x)
 		{
 			duck_model->setMovementDirection(MovementDirection::UP_RIGHT);
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// Else duck keeps moving diagonally left
@@ -102,14 +116,12 @@ namespace Duck
 		if (currentPosition.y <= duck_model->top_most_position.y)
 		{
 			duck_model->setMovementDirection(MovementDirection::DOWN_RIGHT);
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// If duck has reached right most position then start moving diagonally left
 		else if (currentPosition.x >= duck_model->right_most_position.x)
 		{
 			duck_model->setMovementDirection(MovementDirection::UP_LEFT);
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// Else duck keeps moving diagonally right
@@ -126,14 +138,12 @@ namespace Duck
 		if (currentPosition.y >= duck_model->bottom_most_position.y)
 		{
 			duck_model->setMovementDirection(MovementDirection::UP_LEFT); 
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// If duck has reached left most position then start moving diagonally right
 		else if (currentPosition.x <= duck_model->left_most_position.x)
 		{
 			duck_model->setMovementDirection(MovementDirection::DOWN_RIGHT); 
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// Else duck keeps moving diagonally left
@@ -150,18 +160,30 @@ namespace Duck
 		if (currentPosition.y >= duck_model->bottom_most_position.y)
 		{
 			duck_model->setMovementDirection(MovementDirection::UP_RIGHT);
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// If duck has reached right most position then start moving diagonally left
 		else if (currentPosition.x >= duck_model->right_most_position.x)
 		{
 			duck_model->setMovementDirection(MovementDirection::DOWN_LEFT);
-			//duck_model->setReferencePosition(currentPosition);
 		}
 
 		// Else duck keeps moving diagonally right
 		else duck_model->setDuckPosition(currentPosition);
+	}
+
+	void DuckController::dropDown()
+	{
+		sf::Vector2f currentPosition = getDuckPosition();
+		currentPosition.y += duck_model->drop_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
+		if (currentPosition.y >= duck_model->bottom_most_position.y)
+		{
+			destroy(); 
+		}
+
+		else duck_model->setDuckPosition(currentPosition);
+	
 	}
 
 	sf::Vector2f DuckController::getDuckPosition()
@@ -169,25 +191,33 @@ namespace Duck
 		return duck_model->getDuckPosition();
 	}
 
-	/*void DuckController::moveDown()
-	{
-	}*/
 
 	void DuckController::render()
 	{
-		duck_view->render();
+		switch (getDuckState())
+		{
+		case Duck::DuckState::FLYING:
+			flying_duck_view->render();
+			break;
+
+		case Duck::DuckState::DEAD:
+			shot_duck_view->render();
+			break;
+		}
+		
 	}
 	
 	void DuckController::handleShotDucks()
 	{
 		sf::RenderWindow* game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		sf::Sprite duck_sprite = duck_view->getDuckSprite();
+		sf::Sprite duck_sprite = flying_duck_view->getDuckSprite();
 		sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
 
 		if (shotDuck(&duck_sprite, mouse_position))
 		{
 			ServiceLocator::getInstance()->getPlayerService()->increaseScore(100);
-			destroy();
+			duck_model->setDuckState(DuckState::DEAD); 
+			shot_duck_view->initialize(this); 
 		}
 	}
 
@@ -230,13 +260,12 @@ namespace Duck
 	DuckController::~DuckController()
 	{
 		delete duck_model;
-		delete duck_view;
+		delete flying_duck_view;
+		delete shot_duck_view;
 		duck_model = nullptr;
-		duck_view = nullptr;
+		flying_duck_view = nullptr;
+		shot_duck_view = nullptr;
 	}
 
-	DuckState DuckController::getDuckState()
-	{
-		return duck_model->getDuckState(); 
-	}
+	
 }
