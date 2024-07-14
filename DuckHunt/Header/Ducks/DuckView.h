@@ -14,12 +14,16 @@ namespace Duck
 		const float duck_sprite_width = 60.f;
 		const float duck_sprite_height = 60.f;
 
+		const float shot_duck_sprite_width = 80.f;
+		const float shot_duck_sprite_height = 80.f;
+
 		DuckController* duck_controller;
 
 		Image::ImageView* duck_image;
 
 		void createDuckImage();
-		void initializeDuckImage();
+		void initializeFlyingDuckImage();
+		void initializeShotDuckImage();
 		sf::String getDuckTexturePath();
 
 	public:

@@ -3,6 +3,7 @@
 
 namespace Duck
 { 
+
 	DuckModel::DuckModel()
 	{
 		
@@ -10,7 +11,8 @@ namespace Duck
 	
 	void DuckModel::initialize()
 	{
-		duck_state = DuckState::FLYING;
+		duck_state = DuckState::FLYING; 
+		//setDuckSpeed();
 		//movement_direction = MovementDirection::RIGHT;
 		//duck_position = reference_position;
 	}
@@ -50,6 +52,19 @@ namespace Duck
 	{
 		movement_direction = direction;
 	}
+
+	/*void DuckModel::setDuckSpeed()
+	{
+		if (WaveUIController::current_wave == 1)
+		{
+			duck_movement_speed = 350.f;
+		}
+
+		else
+		{
+			duck_movement_speed += 250.f;
+		}
+	}*/
 
 	DuckState DuckModel::getDuckState()
 	{

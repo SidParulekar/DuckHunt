@@ -17,6 +17,11 @@ namespace Duck
 
 		float spawn_timer;
 
+		int max_ducks = 4;
+		int duck_number = 0;
+
+		int duck_kills = 0;
+
 		//DuckType getRandomDuckType();
 
 		DuckController* createDuck();
@@ -43,6 +48,8 @@ namespace Duck
 		void spawnDuck();
 
 		void destroyDuck(DuckController* duck_controller);
+
+		void destroyRadialDucks();
 
 
 	};

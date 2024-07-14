@@ -1,6 +1,7 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckView.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckController.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Config.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckConfig.h"
 
 namespace Duck
 {
@@ -20,17 +21,42 @@ namespace Duck
 	void DuckView::initialize(DuckController* controller)
 	{
 		duck_controller = controller;
-		initializeDuckImage();
+		switch (duck_controller->getDuckState())
+		{
+		case Duck::DuckState::FLYING:
+			initializeFlyingDuckImage();
+			break;
+
+		case Duck::DuckState::DEAD:
+			initializeShotDuckImage();
+			break;
+		}
+		
 	}
 
-	void DuckView::initializeDuckImage()
+	void DuckView::initializeFlyingDuckImage()
 	{
 		duck_image->initialize(getDuckTexturePath(), duck_sprite_width, duck_sprite_height, duck_controller->getDuckPosition());
 	}
 
+	void DuckView::initializeShotDuckImage()
+	{
+		duck_image->initialize(getDuckTexturePath(), shot_duck_sprite_width, shot_duck_sprite_height, duck_controller->getDuckPosition());
+	}
+
 	sf::String DuckView::getDuckTexturePath()
 	{
-		return Config::duck_texture_path;
+		switch (duck_controller->getDuckState())
+		{
+		case Duck::DuckState::FLYING:
+			return Config::duck_texture_path;
+			break;
+
+		case Duck::DuckState::DEAD:
+			return Config::shot_duck_texture_path;
+			break;
+		}
+		
 	}
 	
 	void DuckView::update()

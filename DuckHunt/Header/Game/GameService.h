@@ -8,8 +8,10 @@ namespace Game
 
 	enum class GameState
 	{
-		BOOT,
+		WAVE,
 		GAMEPLAY,
+		RESULT,
+		GAME_OVER
 	};
 
 	class GameService

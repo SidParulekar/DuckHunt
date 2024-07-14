@@ -1,10 +1,16 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckService.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckController.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckModel.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\WaveUIController.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\ServiceLocator.h"
+
 
 namespace Duck
 {
 	using namespace Global;
+	using namespace UI::WaveUI;
+
+	float DuckModel::duck_movement_speed;
 
 	DuckService::DuckService()
 	{
@@ -14,12 +20,21 @@ namespace Duck
 	void DuckService::initialize()
 	{
 		spawn_timer = spawn_interval;
+		DuckModel::duck_movement_speed = 350.f;
 	}
 
 	void DuckService::update()
 	{
-		updateSpawnTimer();
-		processDuckSpawn();
+		if (duck_number < max_ducks)
+		{
+			updateSpawnTimer();
+			processDuckSpawn();
+		}
+
+		if (duck_kills == max_ducks)
+		{
+			ServiceLocator::getInstance()->getGameplayService()->endRound();
+		}
 
 		for (int i = 0; i < duck_list.size(); i++) duck_list[i]->update();
 
@@ -36,6 +51,7 @@ namespace Duck
 		if (spawn_timer >= spawn_interval)
 		{
 			spawnDuck();
+			duck_number += 1;
 			spawn_timer = 0.0f;
 		}
 	}
@@ -63,6 +79,7 @@ namespace Duck
 	{
 		flagged_duck_list.push_back(duck_controller);
 		duck_list.erase(std::remove(duck_list.begin(), duck_list.end(), duck_controller), duck_list.end());
+		duck_kills += 1;
 	}
 
 	void DuckService::destroyFlaggedDucks()
@@ -92,7 +109,22 @@ namespace Duck
 	void DuckService::reset()
 	{
 		destroy();
-		spawn_timer = 0.0f;
+		spawn_timer = spawn_interval;
+		duck_number = 0;
+		duck_kills = 0;
+
+		if (WaveUIController::wave_number == 1)
+		{
+			DuckModel::duck_movement_speed = 350.f;
+			max_ducks = 4;
+		}
+
+		else if (ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult() == "ROUND WON")
+		{
+			DuckModel::duck_movement_speed += 250.f;
+			max_ducks += 2;	
+		}	
+		
 	}
 
 	

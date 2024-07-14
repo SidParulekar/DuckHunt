@@ -1,12 +1,9 @@
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\ServiceLocator.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Game\GameService.h"
 
 namespace Global
 {
-	using namespace Graphic;
-	using namespace Event;
-	using namespace Duck;
-	using namespace Time;
-	using namespace Player;
+	using namespace Game;
 
 	ServiceLocator::ServiceLocator()
 	{
@@ -16,6 +13,7 @@ namespace Global
 		duck_service = nullptr;
 		time_service = nullptr;
 		player_service = nullptr;
+		ui_service = nullptr;
 		createServices();
 
 	}
@@ -29,6 +27,7 @@ namespace Global
 		duck_service = new DuckService();
 		time_service = new TimeService();
 		player_service = new PlayerService();
+		ui_service = new UIService();
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -42,6 +41,7 @@ namespace Global
 	{
 		graphic_service->initialize();
 		event_service->initialize();
+		ui_service->initialize();
 		gameplay_service->initialize();
 		time_service->initialize(); 
 		duck_service->initialize();
@@ -55,9 +55,12 @@ namespace Global
 		event_service->update();
 		gameplay_service->update();
 		time_service->update();
-		duck_service->update();
-		player_service->update();
-		
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			duck_service->update();
+			player_service->update();
+		}
+		ui_service->update();	
 	}
 
 	// Renders the services
@@ -65,7 +68,11 @@ namespace Global
 	{
 		graphic_service->render();
 		gameplay_service->render();
-		duck_service->render();
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			duck_service->render();
+		}
+		ui_service->render();
 	}
 
 	GraphicService* ServiceLocator::getGraphicService()
@@ -98,6 +105,11 @@ namespace Global
 		return player_service;
 	}
 
+	UIService* ServiceLocator::getUIService()
+	{
+		return ui_service;
+	}
+
 
 	//Destructor to clean up resources on object deletion
 	ServiceLocator::~ServiceLocator()
@@ -114,6 +126,7 @@ namespace Global
 		delete duck_service;
 		delete time_service;
 		delete player_service;
+		delete ui_service;
 		
 		graphic_service = nullptr;
 		event_service = nullptr;
@@ -121,6 +134,7 @@ namespace Global
 		duck_service = nullptr;
 		time_service = nullptr;
 		player_service = nullptr;
+		ui_service = nullptr;
 		
 	}
 
