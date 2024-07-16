@@ -76,6 +76,7 @@ namespace UI
 					{
 						ServiceLocator::getInstance()->getPlayerService()->addTotalScore(); 
 						GameService::setGameState(GameState::WAVE);
+						ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_START);
 					}
 					else
 					{

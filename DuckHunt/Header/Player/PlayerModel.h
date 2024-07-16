@@ -17,7 +17,7 @@ namespace Player
 
 		const int max_bullets = 4;
 
-		static const int max_lives = 4;
+		static const int max_lives = 3;
 
 		static int lives;
 		static int bullets;

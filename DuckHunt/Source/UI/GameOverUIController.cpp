@@ -56,6 +56,7 @@ namespace UI
 
 		void GameOverUIController::replayButtonCallback()
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 			ServiceLocator::getInstance()->getGameplayService()->newGame();
 		}
 		

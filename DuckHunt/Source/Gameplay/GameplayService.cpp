@@ -43,6 +43,7 @@ namespace Gameplay
 	{
 		PlayerController::total_score = 0;
 		GameService::setGameState(GameState::WAVE);
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_START);
 		ServiceLocator::getInstance()->getUIService()->getWaveUIController()->reset();
 		ServiceLocator::getInstance()->getUIService()->getResultUIController()->reset(); 
 		ServiceLocator::getInstance()->getDuckService()->reset();
@@ -60,6 +61,7 @@ namespace Gameplay
 		}
 		else
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_START);
 			ServiceLocator::getInstance()->getUIService()->getWaveUIController()->replay();
 			GameService::setGameState(GameState::WAVE); 
 		}	

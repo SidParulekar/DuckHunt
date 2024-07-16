@@ -6,6 +6,7 @@
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Time\TimeService.h"
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Player\PlayerService.h"
 #include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\UIService.h"
+#include "..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Sounds\SoundService.h"
 
 namespace Global
 {
@@ -16,6 +17,7 @@ namespace Global
     using namespace Time;
     using namespace Player;
     using namespace UI;
+    using namespace Sound;
 
     class ServiceLocator
     {
@@ -28,6 +30,7 @@ namespace Global
         TimeService* time_service;
         PlayerService* player_service;
         UIService* ui_service;
+        SoundService* sound_service;
 
         // Constructor for initializing the ServiceLocator.
         ServiceLocator();
@@ -57,6 +60,7 @@ namespace Global
         TimeService* getTimeService(); // Retrieve the TimeService instance
         PlayerService* getPlayerService(); // Retrieve the PlayerService instance
         UIService* getUIService(); // Retrieve the UIService instance
+        SoundService* getSoundService(); // Retrieve the SoundService instance
 
     };
 }

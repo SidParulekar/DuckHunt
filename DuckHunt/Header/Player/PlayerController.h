@@ -18,6 +18,9 @@ namespace Player
 
 		sf::FloatRect radial_hit_box; 
 
+		float round_end_interval = 1.0f;
+		float round_end_timer = 0.0f;
+
 	public:
 
 		PlayerController();

@@ -18,5 +18,12 @@ namespace Global
 		static const sf::String player_health_texture_path;
 
 		static const sf::String replay_button_texture_path;
+
+		static const sf::String normal_bullet_sound_path;
+		static const sf::String radial_bullet_sound_path;
+		static const sf::String button_click_sound_path;
+		static const sf::String round_won_sound_path;
+		static const sf::String round_lost_sound_path;
+		static const sf::String round_start_sound_path;
 	};
 }

@@ -27,6 +27,7 @@ namespace UI
 
 		void WaveUIController::initialize()
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_START);
 			wave_timer = 0.0f;
 			wave_number = 1;
 			current_wave = wave_number;

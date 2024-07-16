@@ -119,10 +119,20 @@ namespace Duck
 			max_ducks = 4;
 		}
 
-		else if (ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult() == "ROUND WON")
+		else
 		{
-			DuckModel::duck_movement_speed += 250.f;
-			max_ducks += 2;	
+			if (ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult() == "ROUND WON")
+			{
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_WON); 
+				DuckModel::duck_movement_speed += 250.f;
+				max_ducks += 2;
+			}
+
+			else
+			{
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_LOST); 
+			}
+			
 		}	
 		
 	}
