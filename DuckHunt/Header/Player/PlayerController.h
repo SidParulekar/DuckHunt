@@ -48,6 +48,8 @@ namespace Player
 
 		bool deployedRadialBullet();
 
+		int normalBulletsLeft();
+
 
 	};
 }

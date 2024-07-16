@@ -242,7 +242,7 @@ namespace Duck
 			}	
 		}
 
-		else
+		else if(ServiceLocator::getInstance()->getPlayerService()->normalBulletsLeft() > 0)
 		{
 			return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() && 
 				duck_sprite->getGlobalBounds().contains(mouse_position); 

@@ -48,6 +48,10 @@ namespace Player
 		{
 			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::NORMAL_BULLET);
 			PlayerModel::bullets -= 1;
+			if (PlayerModel::bullets <= 0 && PlayerModel::radial_bullet>0)
+			{
+				ServiceLocator::getInstance()->getPlayerService()->setBulletType("Radial");
+			}
 		}
 
 		else if (getBulletType() == "Radial")
@@ -99,6 +103,11 @@ namespace Player
 	bool PlayerController::deployedRadialBullet()
 	{
 		return PlayerModel::radial_bullet==0;
+	}
+
+	int PlayerController::normalBulletsLeft()
+	{
+		return PlayerModel::bullets;
 	}
 
 	void PlayerController::reset()

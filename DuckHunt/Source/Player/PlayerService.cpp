@@ -69,6 +69,11 @@ namespace Player
 		return player_controller->deployedRadialBullet();
 	}
 
+	int PlayerService::normalBulletsLeft()
+	{
+		return player_controller->normalBulletsLeft(); 
+	}
+
 	void PlayerService::reset()
 	{
 		player_controller->reset();
