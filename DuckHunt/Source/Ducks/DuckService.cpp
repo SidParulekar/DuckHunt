@@ -3,6 +3,7 @@
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckModel.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\UI\WaveUIController.h"
 #include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\ServiceLocator.h"
+#include "..\..\..\..\..\GitHub\DuckHunt\DuckHunt\Header\Ducks\DuckConfig.h"
 
 
 namespace Duck
@@ -20,6 +21,7 @@ namespace Duck
 	void DuckService::initialize()
 	{
 		spawn_timer = spawn_interval;
+		bonus_duck_spawn_timer = 0.0f;
 		DuckModel::duck_movement_speed = 350.f;
 	}
 
@@ -28,6 +30,7 @@ namespace Duck
 		if (duck_number < max_ducks)
 		{
 			updateSpawnTimer();
+			updateBonusSpawnTimer();
 			processDuckSpawn();
 		}
 
@@ -46,6 +49,11 @@ namespace Duck
 		spawn_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 	}
 
+	void DuckService::updateBonusSpawnTimer()
+	{
+		bonus_duck_spawn_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	}
+
 	void DuckService::processDuckSpawn()
 	{
 		if (spawn_timer >= spawn_interval)
@@ -59,10 +67,18 @@ namespace Duck
 	void DuckService::spawnDuck()
 	{
 		DuckController* duck_controller = createDuck();
+		if (bonus_duck_spawn_timer >= bonus_duck_spawn_interval)
+		{
+			duck_controller->setDuckType(DuckType::BONUS_DUCK);
+			bonus_duck_spawn_timer = 0.0f;
+		}
+		else
+		{
+			duck_controller->setDuckType(DuckType::NORMAL_DUCK); 
+		}
 		duck_controller->initialize();
 
 		duck_list.push_back(duck_controller);
-
 	}
 
 	DuckController* DuckService::createDuck()
@@ -110,6 +126,7 @@ namespace Duck
 	{
 		destroy();
 		spawn_timer = spawn_interval;
+		bonus_duck_spawn_timer = 0.0f;
 		duck_number = 0;
 		duck_kills = 0;
 
@@ -119,20 +136,10 @@ namespace Duck
 			max_ducks = 4;
 		}
 
-		else
-		{
-			if (ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult() == "ROUND WON")
-			{
-				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_WON); 
-				DuckModel::duck_movement_speed += 250.f;
-				max_ducks += 2;
-			}
-
-			else
-			{
-				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_LOST); 
-			}
-			
+		else if (ServiceLocator::getInstance()->getGameplayService()->checkResult() == "ROUND WON")
+		{				
+			DuckModel::duck_movement_speed += 250.f;
+			max_ducks += 2;		
 		}	
 		
 	}

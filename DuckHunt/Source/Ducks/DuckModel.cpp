@@ -37,9 +37,15 @@ namespace Duck
 		reference_position = position;
 	}
 
-	MovementDirection DuckModel::getRandomMovementDirection()
+	MovementDirection DuckModel::getRandomInitialMovementDirection()
 	{
 		int randomDirection = std::rand() % 2;
+		return static_cast<Duck::MovementDirection>(randomDirection);
+	}
+
+	MovementDirection DuckModel::getRandomMovementDirection()
+	{
+		int randomDirection = std::rand() % 4;
 		return static_cast<Duck::MovementDirection>(randomDirection);
 	}
 
@@ -65,6 +71,16 @@ namespace Duck
 			duck_movement_speed += 250.f;
 		}
 	}*/
+
+	DuckType DuckModel::getDuckType()
+	{
+		return duck_type;
+	}
+
+	void DuckModel::setDuckType(DuckType type)
+	{
+		duck_type = type;
+	}
 
 	DuckState DuckModel::getDuckState()
 	{

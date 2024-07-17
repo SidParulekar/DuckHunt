@@ -179,6 +179,7 @@ namespace UI
 			radial_bullet_button->render();
 		}
 
+
 		GameplayUIController::~GameplayUIController()
 		{
 			destroy();

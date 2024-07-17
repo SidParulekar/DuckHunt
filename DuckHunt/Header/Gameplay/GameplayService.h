@@ -1,5 +1,5 @@
 #pragma once
-
+#include <SFML/Graphics.hpp>
 namespace Gameplay
 {
 	class GameplayController;
@@ -20,6 +20,8 @@ namespace Gameplay
 		void endRound();
 
 		void newGame();
+
+		sf::String checkResult();
 
 		void restartRound();
 	};

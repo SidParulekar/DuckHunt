@@ -8,6 +8,7 @@ namespace Global
 	public:
 		static const sf::String background_texture_path;
 		static const sf::String duck_texture_path;
+		static const sf::String bonus_duck_texture_path;
 		static const sf::String shot_duck_texture_path;
 
 		static const sf::String bubble_bobble_font_path;

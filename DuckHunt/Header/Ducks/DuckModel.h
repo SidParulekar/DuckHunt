@@ -6,6 +6,7 @@ namespace Duck
 	//enum class DuckType;
 	enum class MovementDirection;
 	enum class DuckState;
+	enum class DuckType;
 
 	class DuckModel
 	{
@@ -15,7 +16,7 @@ namespace Duck
 		sf::Vector2f duck_position;
 
 		MovementDirection movement_direction;
-		//DuckType duck_type;
+		DuckType duck_type;
 		DuckState duck_state;
 
 	public:
@@ -39,6 +40,8 @@ namespace Duck
 		sf::Vector2f getReferencePosition();
 		void setReferencePosition(sf::Vector2f position);
 
+		MovementDirection getRandomInitialMovementDirection();
+
 		MovementDirection getRandomMovementDirection();
 
 		MovementDirection getMovementDirection();
@@ -46,8 +49,8 @@ namespace Duck
 
 		//void setDuckSpeed();
 
-		//DuckType getDuckType();
-		//void setDuckType(DuckType type);
+		DuckType getDuckType();
+		void setDuckType(DuckType type);
 
 		DuckState getDuckState();
 		void setDuckState(DuckState state);

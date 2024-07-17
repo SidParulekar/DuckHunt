@@ -52,6 +52,21 @@ namespace Gameplay
 		ServiceLocator::getInstance()->getUIService()->getGameplayUIController()->reset();  
 	}
 
+	sf::String GameplayService::checkResult()
+	{
+		sf::String result = ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult();
+		if (result == "ROUND WON")
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_WON);
+		}
+
+		else
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_LOST);
+		}
+		return result;
+	}
+
 	void GameplayService::restartRound()
 	{
 		PlayerModel::lives -= 1;

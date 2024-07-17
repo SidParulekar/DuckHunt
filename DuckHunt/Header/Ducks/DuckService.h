@@ -22,11 +22,13 @@ namespace Duck
 
 		int duck_kills = 0;
 
-		//DuckType getRandomDuckType();
+		float bonus_duck_spawn_interval = 5.0f;
+		float bonus_duck_spawn_timer;
 
 		DuckController* createDuck();
 
 		void updateSpawnTimer();
+		void updateBonusSpawnTimer();
 		void processDuckSpawn();
 		void destroyFlaggedDucks();
 
@@ -48,9 +50,6 @@ namespace Duck
 		void spawnDuck();
 
 		void destroyDuck(DuckController* duck_controller);
-
-		void destroyRadialDucks();
-
 
 	};
 }
