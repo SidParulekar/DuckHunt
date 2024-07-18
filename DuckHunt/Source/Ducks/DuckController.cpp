@@ -103,10 +103,11 @@ namespace Duck
 	{
 		// Duck moves diagonally left
 		sf::Vector2f currentPosition = getDuckPosition();
-		currentPosition.x -= duck_model->duck_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-		currentPosition.y -= duck_model->vertical_travel_distance * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 		if (getDuckType() == DuckType::BONUS_DUCK)
 		{
+			currentPosition.x -= duck_model->bonus_duck_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+			currentPosition.y -= duck_model->bonus_duck_vertical_travel_distance * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
 			if (currentPosition.y <= duck_model->top_most_position.y)
 			{
 				destroy();
@@ -124,6 +125,9 @@ namespace Duck
 
 		else 
 		{
+			currentPosition.x -= duck_model->duck_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+			currentPosition.y -= duck_model->vertical_travel_distance * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
 			if (currentPosition.y <= duck_model->top_most_position.y)
 			{
 				duck_model->setMovementDirection(MovementDirection::DOWN_LEFT);
@@ -144,11 +148,12 @@ namespace Duck
 	{
 		// Duck moves diagonally right
 		sf::Vector2f currentPosition = getDuckPosition();
-		currentPosition.x += duck_model->duck_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-		currentPosition.y -= duck_model->vertical_travel_distance * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
 		if (getDuckType() == DuckType::BONUS_DUCK)
 		{
+			currentPosition.x += duck_model->bonus_duck_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+			currentPosition.y -= duck_model->bonus_duck_vertical_travel_distance * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
 			if (currentPosition.y <= duck_model->top_most_position.y)
 			{
 				destroy();
@@ -166,6 +171,9 @@ namespace Duck
 
 		else
 		{
+			currentPosition.x += duck_model->duck_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+			currentPosition.y -= duck_model->vertical_travel_distance * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
 			if (currentPosition.y <= duck_model->top_most_position.y)
 			{
 				duck_model->setMovementDirection(MovementDirection::DOWN_RIGHT);
@@ -195,13 +203,13 @@ namespace Duck
 			duck_model->setMovementDirection(MovementDirection::UP_LEFT); 
 		}
 
-		// If duck has reached left most position then start moving diagonally right
+		// If duck has reached left most position then start moving downwards diagonally right
 		else if (currentPosition.x <= duck_model->left_most_position.x)
 		{
 			duck_model->setMovementDirection(MovementDirection::DOWN_RIGHT); 
 		}
 
-		// Else duck keeps moving diagonally left
+		// Else duck keeps moving downwards diagonally left
 		else duck_model->setDuckPosition(currentPosition);
 	}
 
@@ -217,13 +225,13 @@ namespace Duck
 			duck_model->setMovementDirection(MovementDirection::UP_RIGHT);
 		}
 
-		// If duck has reached right most position then start moving diagonally left
+		// If duck has reached right most position then start moving downwards diagonally left
 		else if (currentPosition.x >= duck_model->right_most_position.x)
 		{
 			duck_model->setMovementDirection(MovementDirection::DOWN_LEFT);
 		}
 
-		// Else duck keeps moving diagonally right
+		// Else duck keeps moving downwards diagonally right
 		else duck_model->setDuckPosition(currentPosition);
 	}
 

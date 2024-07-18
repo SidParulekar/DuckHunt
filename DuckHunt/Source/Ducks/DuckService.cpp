@@ -12,6 +12,7 @@ namespace Duck
 	using namespace UI::WaveUI;
 
 	float DuckModel::duck_movement_speed;
+	float DuckModel::bonus_duck_movement_speed;
 
 	DuckService::DuckService()
 	{
@@ -23,6 +24,7 @@ namespace Duck
 		spawn_timer = spawn_interval;
 		bonus_duck_spawn_timer = 0.0f;
 		DuckModel::duck_movement_speed = 350.f;
+		DuckModel::bonus_duck_movement_speed = DuckModel::duck_movement_speed + 100.f;
 	}
 
 	void DuckService::update()
@@ -140,7 +142,9 @@ namespace Duck
 		{				
 			DuckModel::duck_movement_speed += 250.f;
 			max_ducks += 2;		
-		}	
+		}
+
+		DuckModel::bonus_duck_movement_speed = DuckModel::duck_movement_speed + 100.f; 
 		
 	}
 

@@ -59,18 +59,6 @@ namespace Duck
 		movement_direction = direction;
 	}
 
-	/*void DuckModel::setDuckSpeed()
-	{
-		if (WaveUIController::current_wave == 1)
-		{
-			duck_movement_speed = 350.f;
-		}
-
-		else
-		{
-			duck_movement_speed += 250.f;
-		}
-	}*/
 
 	DuckType DuckModel::getDuckType()
 	{
