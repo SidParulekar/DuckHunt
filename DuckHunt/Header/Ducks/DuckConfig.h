@@ -15,4 +15,10 @@ namespace Duck
 		DOWN_LEFT,
 		DOWN_RIGHT
 	};
+
+	enum class DuckType
+	{
+		NORMAL_DUCK,
+		BONUS_DUCK
+	};
 }

@@ -27,6 +27,7 @@ namespace UI
 
 		void WaveUIController::initialize()
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_START);
 			wave_timer = 0.0f;
 			wave_number = 1;
 			current_wave = wave_number;
@@ -94,7 +95,7 @@ namespace UI
 
 		void WaveUIController::updateRequiredScore()
 		{
-			required_score -= 100;
+			required_score += 100;
 			sf::String required_score_string = "Required score to win: " + std::to_string(required_score);
 			required_score_text->setText(required_score_string); 
 		}

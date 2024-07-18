@@ -18,6 +18,8 @@ namespace UI
 		{
 			bullet_image = new ImageView();
 
+			radial_bullet_image = new ImageView();
+
 			score_text = new TextView(); 
 
 			timer_text = new TextView();
@@ -43,6 +45,7 @@ namespace UI
 		{
 			bullet_image->initialize(Config::bullet_texture_path, bullet_sprite_width, bullet_sprite_height, sf::Vector2f(0, 0));
 			player_lives_image->initialize(Config::player_health_texture_path, lives_sprite_width, lives_sprite_height, sf::Vector2f(0, 0));
+			radial_bullet_image->initialize(Config::radial_bullet_texture_path, radial_bullet_sprite_width, radial_bullet_sprite_height, sf::Vector2f(radial_bullet_x_position, radial_bullet_y_position));
 		}
 
 		void GameplayUIController::initializeText()
@@ -61,8 +64,8 @@ namespace UI
 
 		void GameplayUIController::initializeButtons()
 		{
-			normal_bullet_button->initialize("Normal Bullet Button", Config::bullet_texture_path, normal_bullet_button_sprite_width, normal_bullet_button_sprite_height, sf::Vector2f(normal_bullet_x_position, normal_bullet_button_y_position));
-			radial_bullet_button->initialize("Radial Bullet Button", Config::radial_bullet_texture_path, radial_bullet_button_sprite_width, radial_bullet_button_sprite_height, sf::Vector2f(radial_bullet_x_position, radial_bullet_button_y_position));
+			normal_bullet_button->initialize("Normal Bullet Button", Config::bullet_texture_path, normal_bullet_button_sprite_width, normal_bullet_button_sprite_height, sf::Vector2f(normal_bullet_button_x_position, normal_bullet_button_y_position));
+			radial_bullet_button->initialize("Radial Bullet Button", Config::radial_bullet_texture_path, radial_bullet_button_sprite_width, radial_bullet_button_sprite_height, sf::Vector2f(radial_bullet_button_x_position, radial_bullet_button_y_position));
 		}
 		
 		void GameplayUIController::update()
@@ -89,6 +92,7 @@ namespace UI
 
 		void GameplayUIController::normalBulletButtonCallback()
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 			ServiceLocator::getInstance()->getPlayerService()->setBulletType("Normal");
 		}
 
@@ -96,6 +100,7 @@ namespace UI
 		{
 			if (!ServiceLocator::getInstance()->getPlayerService()->deployedRadialBullet())
 			{
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 				ServiceLocator::getInstance()->getPlayerService()->setBulletType("Radial"); 
 			}	
 		}
@@ -136,6 +141,7 @@ namespace UI
 			score_text->render();
 			player_lives_text->render();
 			drawBullets();
+			drawRadialBullet();
 			drawLives();
 			drawBulletButtons();
 		}
@@ -147,6 +153,15 @@ namespace UI
 				bullet_image->setPosition(sf::Vector2f(bullets_x_offset - (i * bullets_spacing), bullets_y_offset));
 				bullet_image->render();
 			}
+		}
+
+		void GameplayUIController::drawRadialBullet()
+		{
+			if (!ServiceLocator::getInstance()->getPlayerService()->deployedRadialBullet())
+			{
+				radial_bullet_image->render();
+			}
+
 		}
 
 		void GameplayUIController::drawLives()
@@ -164,6 +179,7 @@ namespace UI
 			radial_bullet_button->render();
 		}
 
+
 		GameplayUIController::~GameplayUIController()
 		{
 			destroy();
@@ -173,6 +189,7 @@ namespace UI
 		void GameplayUIController::destroy()
 		{
 			delete bullet_image;
+			delete radial_bullet_image;
 			delete score_text;
 			delete timer_text;
 			delete player_lives_text;

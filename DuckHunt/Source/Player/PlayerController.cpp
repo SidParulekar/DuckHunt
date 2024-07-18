@@ -29,6 +29,16 @@ namespace Player
 		{
 			decreaseBullets();
 		}
+
+		if (PlayerModel::bullets <= 0 && PlayerModel::radial_bullet == 0)
+		{
+			round_end_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+			if (round_end_timer >= round_end_interval)
+			{
+				ServiceLocator::getInstance()->getGameplayService()->endRound();
+				round_end_timer = 0.0f;
+			}
+		}
 		
 	}
 
@@ -36,35 +46,28 @@ namespace Player
 	{
 		if (getBulletType() == "Normal")
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::NORMAL_BULLET);
 			PlayerModel::bullets -= 1;
+			if (PlayerModel::bullets <= 0 && PlayerModel::radial_bullet>0)
+			{
+				ServiceLocator::getInstance()->getPlayerService()->setBulletType("Radial");
+			}
 		}
 
 		else if (getBulletType() == "Radial")
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::RADIAL_BULLET);
 			PlayerModel::radial_bullet = 0;
 			sf::RenderWindow* game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
 			sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
 
 			sf::CircleShape circle;
-			circle.setRadius(200);
-			//circle.setOutlineColor(sf::Color::Red);
-			//circle.setOutlineThickness(5);
+			circle.setRadius(100);
 			circle.setOrigin(circle.getRadius() / 2, circle.getRadius() / 2);
 			circle.setPosition(mouse_position);
 
-			//game_window->draw(circle);
-
 			radial_hit_box = circle.getGlobalBounds();
-
-			//ServiceLocator::getInstance()->getPlayerService()->setBulletType("Normal");
 		}
-
-		if (PlayerModel::bullets <= 0)
-		{
-			ServiceLocator::getInstance()->getGameplayService()->endRound();
-		}
-
-		//else reset();
 	}
 
 	void PlayerController::addTotalScore()
@@ -100,6 +103,11 @@ namespace Player
 	bool PlayerController::deployedRadialBullet()
 	{
 		return PlayerModel::radial_bullet==0;
+	}
+
+	int PlayerController::normalBulletsLeft()
+	{
+		return PlayerModel::bullets;
 	}
 
 	void PlayerController::reset()

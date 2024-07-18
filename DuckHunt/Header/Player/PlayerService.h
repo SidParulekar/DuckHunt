@@ -36,6 +36,8 @@ namespace Player
 
         bool deployedRadialBullet();
 
+        int normalBulletsLeft();
+
         void reset();
     };
 }

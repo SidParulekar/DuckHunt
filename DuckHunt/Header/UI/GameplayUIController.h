@@ -25,6 +25,11 @@ namespace UI
 			const float bullet_sprite_width = 60.f;
 			const float bullet_sprite_height = 60.f;
 
+			const float radial_bullet_y_position = 100.f;
+			const float radial_bullet_x_position = 1860.f;
+			const float radial_bullet_sprite_width = 20.f;
+			const float radial_bullet_sprite_height = 50.f;
+
 			const float player_lives_text_y_position = 910.f;
 			const float player_lives_text_x_position = 60.f;
 
@@ -38,9 +43,9 @@ namespace UI
 			const float normal_bullet_button_y_position = 900.f;
 			const float radial_bullet_button_y_position = 920.f;
 
-			const float normal_bullet_x_position = 800.f;
+			const float normal_bullet_button_x_position = 800.f;
 
-			const float radial_bullet_x_position = 1090.f;
+			const float radial_bullet_button_x_position = 1090.f;
 
 			const float normal_bullet_button_sprite_width = 150.f;
 			const float normal_bullet_button_sprite_height = 150.f;
@@ -48,15 +53,13 @@ namespace UI
 			const float radial_bullet_button_sprite_width = 50.f;
 			const float radial_bullet_button_sprite_height = 100.f;
 			
-
-
-
 			float round_time = 15.f;
 			
 
 			const sf::Color text_color = sf::Color::White;
 
 			ImageView* bullet_image;
+			ImageView* radial_bullet_image;
 			TextView* score_text; 
 
 			TextView* timer_text;
@@ -97,6 +100,7 @@ namespace UI
 			void updateTimerText();
 			void updateScoreText();
 			void drawBullets();
+			void drawRadialBullet();
 			void drawLives();
 			void drawBulletButtons();
 		};

@@ -49,9 +49,17 @@ namespace Duck
 		switch (duck_controller->getDuckState())
 		{
 		case Duck::DuckState::FLYING:
-			return Config::duck_texture_path;
-			break;
+			switch (duck_controller->getDuckType())
+			{
+			case DuckType::NORMAL_DUCK:
+				return Config::duck_texture_path;
+				break;
 
+			case DuckType::BONUS_DUCK:
+				return Config::bonus_duck_texture_path;
+				break;
+			}
+			
 		case Duck::DuckState::DEAD:
 			return Config::shot_duck_texture_path;
 			break;

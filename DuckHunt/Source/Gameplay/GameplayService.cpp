@@ -42,12 +42,29 @@ namespace Gameplay
 	void GameplayService::newGame()
 	{
 		PlayerController::total_score = 0;
+		PlayerModel::lives = PlayerModel::max_lives;
 		GameService::setGameState(GameState::WAVE);
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_START);
 		ServiceLocator::getInstance()->getUIService()->getWaveUIController()->reset();
 		ServiceLocator::getInstance()->getUIService()->getResultUIController()->reset(); 
 		ServiceLocator::getInstance()->getDuckService()->reset();
-		ServiceLocator::getInstance()->getPlayerService()->reset();
-		ServiceLocator::getInstance()->getUIService()->getGameplayUIController()->reset(); 
+		ServiceLocator::getInstance()->getPlayerService()->reset(); 
+		ServiceLocator::getInstance()->getUIService()->getGameplayUIController()->reset();  
+	}
+
+	sf::String GameplayService::checkResult()
+	{
+		sf::String result = ServiceLocator::getInstance()->getUIService()->getResultUIController()->checkResult();
+		if (result == "ROUND WON")
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_WON);
+		}
+
+		else
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_LOST);
+		}
+		return result;
 	}
 
 	void GameplayService::restartRound()
@@ -60,6 +77,7 @@ namespace Gameplay
 		}
 		else
 		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::ROUND_START);
 			ServiceLocator::getInstance()->getUIService()->getWaveUIController()->replay();
 			GameService::setGameState(GameState::WAVE); 
 		}	
